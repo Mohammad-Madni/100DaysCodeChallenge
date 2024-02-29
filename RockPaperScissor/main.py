@@ -45,21 +45,22 @@ elif choice == 1:
     print(paper)
     if computer_choice == 0:
         print(rock)
-        print("It's Draw.")
+        print("You Win.")
     elif computer_choice == 1:
         print(paper)
-        print("You Lose.")
+        print("It's Draw.")
     elif computer_choice == 2:
         print(scissors)
-        print("You Win.")
+        print("You Lose.")
 elif choice == 2:
     print(scissors)
-if computer_choice == 0:
-    print("Computer Chose:")
-    print(rock)
-elif computer_choice == 1:
-    print("Computer Chose:")
-    print(paper)
-elif computer_choice ==2:
-    print("Computer Chose:")
-    print(scissors)
+    if computer_choice == 0:
+        print(rock)
+        print("You Lose.")
+    elif computer_choice == 1:
+        print(paper)
+        print("You Win.")
+    elif computer_choice == 2:
+        print(scissors)
+        print("It's Draw.")
+
