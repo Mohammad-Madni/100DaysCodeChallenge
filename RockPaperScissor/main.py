@@ -63,4 +63,6 @@ elif choice == 2:
     elif computer_choice == 2:
         print(scissors)
         print("It's Draw.")
+else:
+    print("Invalid Input")
 
