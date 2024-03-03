@@ -9,11 +9,11 @@ shift = int(input("Type the shift number:\n"))
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
 
-def encrypt(text, shift):
+def encrypt(plain_text, plain_shift):
     result = ""
-    for i in text:
+    for i in plain_text:
         indexs = alphabet.index(i)
-        no_shifts = indexs + shift
+        no_shifts = indexs + plain_shift
         result += alphabet[no_shifts]
     print(result)
 
@@ -33,4 +33,4 @@ def encrypt(text, shift):
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message.
 if direction == "encode":
-    encrypt(text=text, shift=shift)
+    encrypt(plain_text=text, plain_shift=shift)
