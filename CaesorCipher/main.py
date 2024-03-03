@@ -10,14 +10,17 @@ def caesor(plain_text, plain_shift, plain_direction):
         # Can you fix the code to keep the number/symbol/space when the text is encoded/decoded?
         # e.g. start_text = "meet me at 3"
         # end_text = "•••• •• •• 3"
-        indexs = alphabet.index(i)
-        if plain_direction == "encode":
-            no_shifts = indexs + plain_shift
-        elif plain_direction == "decode":
-            no_shifts = indexs - plain_shift
+        if i in alphabet:
+            indexs = alphabet.index(i)
+            if plain_direction == "encode":
+                no_shifts = indexs + plain_shift
+            elif plain_direction == "decode":
+                no_shifts = indexs - plain_shift
+            else:
+                print("Invalid Input !")
+            result += alphabet[no_shifts]
         else:
-            print("Invalid Input !")
-        result += alphabet[no_shifts]
+            result += i
     print(f"Your {plain_direction}d message is = {result}")
 
 repeat = True
@@ -25,9 +28,9 @@ while repeat:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
-    if shift >= 26:
-        shift = shift % 2
+    shift = shift % 26
     caesor(plain_text = text, plain_shift = shift, plain_direction = direction)
-    chose = input("Do you want to start Cipher again ? Type 'Yes' or 'No' ").lower()
+    chose = input("Do you want to start Cipher again ? Type 'Yes' or 'No' \n").lower()
     if chose == "no":
         repeat = False
+        print("Good Bye !")
