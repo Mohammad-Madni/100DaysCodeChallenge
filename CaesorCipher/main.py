@@ -17,9 +17,8 @@ def caesor(plain_text, plain_shift, plain_direction):
         else:
             print("Invalid Input !")
         result += alphabet[no_shifts]
-    print(f"You {plain_direction}d message is = {result}")
+    print(f"Your {plain_direction}d message is = {result}")
 
-#TODO-1: Import and print the logo from art.py when the program starts.
 
 #TODO-4: Can you figure out a way to ask the user if they want to restart the cipher program?
 #e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
@@ -29,7 +28,8 @@ def caesor(plain_text, plain_shift, plain_direction):
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
-
+if shift >= 26:
+    shift = shift % 2
 #TODO-2: What if the user enters a shift that is greater than the number of letters in the alphabet?
 #Try running the program and entering a shift number of 45.
 #Add some code so that the program continues to work even if the user enters a shift number greater than 26.
