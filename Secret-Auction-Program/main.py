@@ -2,7 +2,6 @@ from art import logo
 print(logo)
 print(("Welcome to the secret auction program."))
 key_value = {}
-result = {}
 should_run = True
 while should_run:
     user_name = input("What is your name?: ").lower()
@@ -12,6 +11,7 @@ while should_run:
     if user_choice == "yes":
         print("\n" * 20)
     elif user_choice == "no":
-        print(f"the winner is {result}")
+        result = max(key_value)
+        print(f"The winner is {result} with a bid of ${key_value[result]}")
     else :
         print("wrong input !")
