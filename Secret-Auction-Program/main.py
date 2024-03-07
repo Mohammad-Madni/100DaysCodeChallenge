@@ -1,17 +1,28 @@
 from art import logo
+
 print(logo)
-print(("Welcome to the secret auction program."))
-key_value = {}
-should_run = True
-while should_run:
-    user_name = input("What is your name?: ").lower()
-    user_bid = input("What's your bid?: ").lower()
-    key_value[user_name] = user_bid
-    user_choice = input("Are there any other bidders? Type 'yes' or 'no'.").lower()
-    if user_choice == "yes":
-        print("\n" * 20)
-    elif user_choice == "no":
-        result = max(key_value)
-        print(f"The winner is {result} with a bid of ${key_value[result]}")
-    else :
-        print("wrong input !")
+
+bids = {}
+bidding_finished = False
+
+def find_highest_bidder(bidding_record):
+  highest_bid = 0
+  winner = ""
+  # bidding_record = {"Angela": 123, "James": 321}
+  for bidder in bidding_record:
+    bid_amount = bidding_record[bidder]
+    if bid_amount > highest_bid:
+      highest_bid = bid_amount
+      winner = bidder
+  print(f"The winner is {winner} with a bid of ${highest_bid}")
+
+while not bidding_finished:
+  name = input("What is your name?: ")
+  price = int(input("What is your bid?: $"))
+  bids[name] = price
+  should_continue = input("Are there any other bidders? Type 'yes or 'no'.\n")
+  if should_continue == "no":
+    bidding_finished = True
+    find_highest_bidder(bids)
+  elif should_continue == "yes":
+    print("\n"* 15)
