@@ -40,3 +40,33 @@ travel_log = [
         "cities_visted": ["Berlin", "Hamburg", "Stuttgart"],
         "No_times_visited" : 5},
 ]
+
+# short program with dictionaries
+student_scores = {
+  "Harry": 81,
+  "Ron": 78,
+  "Hermione": 99,
+  "Draco": 74,
+  "Neville": 62,
+}
+# 🚨 Don't change the code above 👆
+# TODO-1: Create an empty dictionary called student_grades.
+student_grades = {}
+
+# TODO-2: Write your code below to add the grades to student_grades.👇
+def calculate(grades):
+  for student in grades:
+
+      value = student_scores[student]
+      if value > 90:
+          student_grades[student] = "Outstanding"
+      elif value > 80:
+          student_grades[student] = "Exceeds Expectations"
+      elif value > 70:
+          student_grades[student] = "Acceptable"
+      elif value <= 70:
+          student_grades[student] = "Fail"
+calculate(student_scores)
+
+# 🚨 Don't change the code below 👇
+print(student_grades)
