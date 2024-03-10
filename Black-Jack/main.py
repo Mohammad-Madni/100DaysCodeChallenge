@@ -25,8 +25,10 @@ user_card = []
 for i in range(2):
     user_card.append(random.choice(cards))
     computer_card.append(random.choice(cards))
-print(f"{user_card} these are yours!")
-print(f"{computer_card} these are computers")
+value_of_user = sum(user_card)
+value_of_computer = sum(computer_card)
+print(f"{user_card} these are yours! and it's total {value_of_user}")
+print(f"{computer_card} these are computers and it's total {value_of_computer}")
 
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
