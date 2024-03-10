@@ -1,5 +1,6 @@
+from art import logo
 ############### Blackjack Project #####################
-
+import random
 #Difficulty Normal 😎: Use all Hints below to complete the project.
 #Difficulty Hard 🤔: Use only Hints 1, 2, 3 to complete the project.
 #Difficulty Extra Hard 😭: Only use Hints 1 & 2 to complete the project.
@@ -18,6 +19,8 @@
 ## The computer is the dealer.
 
 ##################### Hints #####################
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+random_choice = random.choice(cards)
 
 #Hint 1: Go to this website and try out the Blackjack game:
 #   https://games.washingtonpost.com/games/blackjack/
