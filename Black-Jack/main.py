@@ -31,7 +31,8 @@ print(f"your cards: {user_card}, current score: {value_of_user}")
 print(f"computer's first card: {computer_card[0]}")
 user_choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
 if user_choice == "y":
-    
+    computer_card.append(random.choice(cards))
+    print(f"your cards: {user_card}, current score: {value_of_user}")
 
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
