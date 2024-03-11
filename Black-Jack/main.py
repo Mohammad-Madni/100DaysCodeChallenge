@@ -19,19 +19,28 @@ import random
 ## The computer is the dealer.
 
 ##################### Hints #####################
+def add_card():
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 computer_card = []
 user_card = []
 for i in range(2):
     user_card.append(random.choice(cards))
     computer_card.append(random.choice(cards))
-print(f"your cards: {user_card}, current score: {sum(user_card)}")
-print(f"computer's first card: {computer_card[0]}")
+print(f"Your cards: {user_card}, current score: {sum(user_card)}")
+print(f"Computer's first card: {computer_card[0]}")
 user_choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
 if user_choice == "y":
     user_card.append(random.choice(cards))
-    print(f"your cards: {user_card}, current score: {sum(user_card)}")
-
+    print(f"Your cards: {user_card}, current score: {sum(user_card)}")
+    print(f"Computer's first card: {computer_card[0]}")
+    user_choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
+    if user_choice == "y":
+        user_card.append(random.choice(cards))
+        print(f"Your cards: {user_card}, current score: {sum(user_card)}")
+        print(f"Computer's first card: {computer_card[0]}")
+elif user_choice == "n":
+    print(f"Your final hand: {user_card}, final score: {sum(user_card)}")
+    print(f"Your final hand: {computer_card}, final score: {sum(computer_card)}")
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
 #cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
