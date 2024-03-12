@@ -35,11 +35,12 @@ user_card = []
 for i in range(2):
     user_card.append(random.choice(cards))
     computer_card.append(random.choice(cards))
-black_jack = cards[0]
-if black_jack in user_card:
-    print(f"User has {black_jack}")
-if black_jack in computer_card:
-    print(f"Computer has {black_jack}")
+sum_user = sum(user_card)
+sum_computer = sum(computer_card)
+if sum_user == 21:
+    print(f"User has Black Jack ")
+elif sum_computer == 21:
+    print(f"Computer has Black Jack")
 print(f"Your cards: {user_card}, current score: {sum(user_card)}")
 print(f"Computer's first card: {computer_card[0]}")
 add_card()
