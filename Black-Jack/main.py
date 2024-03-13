@@ -19,6 +19,15 @@ import random
 ## The computer is the dealer.
 
 ##################### Hints #####################
+def final_calc():
+    if sum_computer > 21:
+        
+def comp_check():
+    if sum_computer < 17:
+        computer_card.append(random.choice(cards))
+        comp_check()
+    else:
+        pass
 def result():
     print(f"Your final hand: {user_card}, final score: {sum(user_card)}")
     print(f"Computer's final hand: {computer_card}, final score: {sum(computer_card)}")
