@@ -19,21 +19,38 @@ import random
 ## The computer is the dealer.
 
 ##################### Hints #####################
+def result():
+    print(f"Your final hand: {user_card}, final score: {sum(user_card)}")
+    print(f"Computer's final hand: {computer_card}, final score: {sum(computer_card)}")
+
+def check():
+    if sum_user > 21:
+        if cards[0] in user_card:
+            sum_user - 10
+            if sum_user > 21:
+                print(f"You've lost")
+            else:
+                add_card()
+        else:
+            print(f"You've Lost !")
+    else:
+        add_card()
 def final():
     if sum_user == 21:
-        print(f"User has Black Jack ")
+        print(f"You Win with Black Jack ")
     elif sum_computer == 21:
-        print(f"Computer has Black Jack")
+        print(f"You Lose Computer has Black Jack")
+    else:
+        check()
 def add_card():
     user_choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
-    user_card.append(random.choice(cards))
     if user_choice == "y":
+        user_card.append(random.choice(cards))
         print(f"Your cards: {user_card}, current score: {sum(user_card)}")
         print(f"Computer's first card: {computer_card[0]}")
         add_card()
     elif user_choice == "n":
-        print(f"Your final hand: {user_card}, final score: {sum(user_card)}")
-        print(f"Computer's final hand: {computer_card}, final score: {sum(computer_card)}")
+        result()
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 computer_card = []
 user_card = []
@@ -44,11 +61,10 @@ sum_user = sum(user_card)
 sum_computer = sum(computer_card)
 print(f"Your cards: {user_card}, current score: {sum(user_card)}")
 print(f"Computer's first card: {computer_card[0]}")
-if sum_user > 21:
-    if user_card == cards[0]:
-        
+
+
+
 final()
-add_card()
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
 #cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
