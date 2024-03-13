@@ -19,6 +19,11 @@ import random
 ## The computer is the dealer.
 
 ##################### Hints #####################
+def final():
+    if sum_user == 21:
+        print(f"User has Black Jack ")
+    elif sum_computer == 21:
+        print(f"Computer has Black Jack")
 def add_card():
     user_choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
     user_card.append(random.choice(cards))
@@ -37,12 +42,9 @@ for i in range(2):
     computer_card.append(random.choice(cards))
 sum_user = sum(user_card)
 sum_computer = sum(computer_card)
-if sum_user == 21:
-    print(f"User has Black Jack ")
-elif sum_computer == 21:
-    print(f"Computer has Black Jack")
 print(f"Your cards: {user_card}, current score: {sum(user_card)}")
 print(f"Computer's first card: {computer_card[0]}")
+final()
 add_card()
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
