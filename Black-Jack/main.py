@@ -44,6 +44,9 @@ sum_user = sum(user_card)
 sum_computer = sum(computer_card)
 print(f"Your cards: {user_card}, current score: {sum(user_card)}")
 print(f"Computer's first card: {computer_card[0]}")
+if sum_user > 21:
+    if user_card == cards[0]:
+        
 final()
 add_card()
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
