@@ -19,38 +19,25 @@ import random
 ## The computer is the dealer.
 
 ##################### Hints #####################
-def final_calc():
-    if sum_computer > 21:
-        
-def comp_check():
-    if sum_computer < 17:
-        computer_card.append(random.choice(cards))
-        comp_check()
-    else:
-        pass
-def result():
-    print(f"Your final hand: {user_card}, final score: {sum(user_card)}")
-    print(f"Computer's final hand: {computer_card}, final score: {sum(computer_card)}")
-
-def check():
-    if sum_user > 21:
-        if cards[0] in user_card:
-            sum_user - 10
-            if sum_user > 21:
-                print(f"You've lost")
-            else:
-                add_card()
-        else:
-            print(f"You've Lost !")
-    else:
-        add_card()
 def final():
     if sum_user == 21:
         print(f"You Win with Black Jack ")
     elif sum_computer == 21:
         print(f"You Lose Computer has Black Jack")
     else:
-        check()
+        add_card()
+def check():
+    if sum_user > 21:  # Check if player busts
+        if 11 in user_card:  # Check for Ace (11) in hand
+            sum_user = sum_user - 10  # Change Ace value to 1
+            if sum_user > 21:  # Check if still bust
+                print(f"You've lost")
+            else:
+                add_card()  # Draw another card (assuming defined)
+        else:
+            print(f"You've Lost!")  # No Ace, player loses
+    else:
+        add_card()
 def add_card():
     user_choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
     if user_choice == "y":
@@ -60,6 +47,33 @@ def add_card():
         add_card()
     elif user_choice == "n":
         result()
+def result():
+    print(f"Your final hand: {user_card}, final score: {sum(user_card)}")
+    print(f"Computer's final hand: {computer_card}, final score: {sum(computer_card)}")
+    final_calc()
+
+def final_calc():
+    comp_check()
+    if sum_computer > 21:
+        result()
+        print("Computer gone over 21")
+        print(f"You Win !")
+    elif sum_user > sum_computer:
+        result()
+        print(f"You Win !")
+    elif sum_user < sum_computer:
+        result()
+        print("You Lost !")
+    elif sum_computer == sum_user:
+        print("It's Draw !")
+def comp_check():
+    if sum_computer < 17:
+        computer_card.append(random.choice(cards))
+        if sum_computer < 17:
+            comp_check()
+
+
+
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 computer_card = []
 user_card = []
