@@ -19,75 +19,15 @@ import random
 ## The computer is the dealer.
 
 ##################### Hints #####################
-def final():
-    if sum_user == 21:
-        print(f"You Win with Black Jack ")
-    elif sum_computer == 21:
-        print(f"You Lose Computer has Black Jack")
-    else:
-        add_card()
-def check():
-    if sum_user > 21:  # Check if player busts
-        if 11 in user_card:  # Check for Ace (11) in hand
-            sum_user = sum_user - 10  # Change Ace value to 1
-            if sum_user > 21:  # Check if still bust
-                print(f"You've lost")
-            else:
-                add_card()  # Draw another card (assuming defined)
-        else:
-            print(f"You've Lost!")  # No Ace, player loses
-    else:
-        add_card()
-def add_card():
-    user_choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
-    if user_choice == "y":
-        user_card.append(random.choice(cards))
-        print(f"Your cards: {user_card}, current score: {sum(user_card)}")
-        print(f"Computer's first card: {computer_card[0]}")
-        add_card()
-    elif user_choice == "n":
-        result()
-def result():
-    print(f"Your final hand: {user_card}, final score: {sum(user_card)}")
-    print(f"Computer's final hand: {computer_card}, final score: {sum(computer_card)}")
-    final_calc()
-
-def final_calc():
-    comp_check()
-    if sum_computer > 21:
-        result()
-        print("Computer gone over 21")
-        print(f"You Win !")
-    elif sum_user > sum_computer:
-        result()
-        print(f"You Win !")
-    elif sum_user < sum_computer:
-        result()
-        print("You Lost !")
-    elif sum_computer == sum_user:
-        print("It's Draw !")
-def comp_check():
-    if sum_computer < 17:
-        computer_card.append(random.choice(cards))
-        if sum_computer < 17:
-            comp_check()
-
-
-
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-computer_card = []
-user_card = []
+def deal_card():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    return random.choice(cards)
+user_cards = []
+computer_cards = []
 for i in range(2):
-    user_card.append(random.choice(cards))
-    computer_card.append(random.choice(cards))
-sum_user = sum(user_card)
-sum_computer = sum(computer_card)
-print(f"Your cards: {user_card}, current score: {sum(user_card)}")
-print(f"Computer's first card: {computer_card[0]}")
-
-
-
-final()
+    user_cards.append(deal_card())
+    computer_cards.append(deal_card())
+print(f"User has {user_cards} Computer has {computer_cards}")
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
 #cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
