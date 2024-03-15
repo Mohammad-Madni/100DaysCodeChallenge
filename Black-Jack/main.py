@@ -21,38 +21,23 @@ import random
 ##################### Hints #####################
 def deal_card():
     cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-    return random.choice(cards)
-def calculate_score(a):
-    if sum(a) > 21:
-        if 11 in a:
-            a.remove(11)
-            a.append(1)
-        else:
-            print("you've gone over !")
-
-    else:
-        pass
-    if sum(a) == 21:
-        return 0
-    return sum(a)
-
+    card = random.choice(cards)
+    return card
 user_cards = []
 computer_cards = []
+
 for i in range(2):
     user_cards.append(deal_card())
     computer_cards.append(deal_card())
 print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
 print(f"Computer's first card: {computer_cards[0]}")
-game_ended = False
-while not game_ended:
-    choice = input("Type 'y' to get another card, type 'n' to pass: ").lower()
-    if choice == "y":
-        user_cards.append(deal_card())
-        calculate_score(user_cards)
-        print(f"Your cards: {user_cards}, current score: {sum(user_cards)}")
-        print(f"Computer's first card: {computer_cards[0]}")
-    else:
-        game_ended = True
+def calculate_score(cards):
+    if sum(cards) == 21 and len(cards) == 2:
+        return 0
+    if 11 in cards and sum(cards) > 21:
+        cards.remove(11)
+        cards.append(1)
+    return sum(cards)
 
 #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
 
