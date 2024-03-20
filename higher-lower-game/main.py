@@ -1,18 +1,30 @@
 from art import logo,vs
 import random
 from game_data import data
-print(logo)
-#print art between 1st and 2nd data
-print(vs)
 
+def formated_data(account):
+    """format the account data into printable format."""
+    account_name = account["name"]
+    account_desc = account["description"]
+    account_country = account["country"]
+    return (f"{account_name}, a {account_desc}, from {account_country}.")
 #generate a random account from game_data
 account_a = random.choice(data)
 account_b = random.choice(data)
 if account_a == account_b:
     account_b.random.choice(data)
 
+print(logo)
 
-#format the account data into printable format.
+print(f"Compare A: {formated_data(account=account_a)}")
+
+#print art between 1st and 2nd data
+print(vs)
+
+print(f"Compare B: {formated_data(account=account_b)}")
+
+
+
 
 #ask the user to guess
 
