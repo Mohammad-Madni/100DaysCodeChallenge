@@ -2,11 +2,15 @@ from art import logo,vs
 import random
 from game_data import data
 print(logo)
+#print art between 1st and 2nd data
 print(vs)
 
-#print art between 1st and 2nd data
-
 #generate a random account from game_data
+account_a = random.choice(data)
+account_b = random.choice(data)
+if account_a == account_b:
+    account_b.random.choice(data)
+
 
 #format the account data into printable format.
 
