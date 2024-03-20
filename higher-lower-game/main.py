@@ -1,7 +1,8 @@
-from art import logo
+from art import logo,vs
 import random
 from game_data import data
-
+print(logo)
+print(vs)
 
 #print art between 1st and 2nd data
 
