@@ -21,13 +21,13 @@ print(f"Compare A: {formated_data(account=account_a)}")
 #print art between 1st and 2nd data
 print(vs)
 
-print(f"Compare B: {formated_data(account=account_b)}")
+print(f"Against B: {formated_data(account=account_b)}")
 
 
 
 
 #ask the user to guess
-
+guess = input("Who has more follower's ? Type 'A' or 'B': ").lower()
 #check the user is correct
 ##get follower count of each account
 ##user if statement to check if user is correct
