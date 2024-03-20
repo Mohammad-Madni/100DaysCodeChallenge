@@ -3,6 +3,7 @@ import random
 from game_data import data
 score = 0
 should_conitue = True
+account_b = random.choice(data)
 
 
 def formated_data(account):
@@ -21,9 +22,10 @@ def check_answer(guess, a_follower, b_follower):
         return guess == "b"
 while should_conitue:
     #generate a random account from game_data
-    account_a = random.choice(data)
+
+    account_a = account_b
     account_b = random.choice(data)
-    if account_a == account_b:
+    while account_a == account_b:
         account_b.random.choice(data)
 
     print(logo)
