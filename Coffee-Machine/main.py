@@ -29,6 +29,11 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+should_continue = True
+while should_continue:
 
-
+    user_input = input("What would you like? (espresso/latte/cappuccino):").lower()
+    if user_input == "off":
+        should_continue = False
+    elif
 print("☕")
