@@ -31,6 +31,23 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+def check_ingredients(ingredients_of_coffee):
+    """Check's ingredients are enough or not and return's true or false"""
+    for item in ingredients_of_coffee:
+        if ingredients_of_coffee[item] >= resources[item]:
+            print(f"Sorry there is not enough {item}.")
+            return False
+    return True
+
+def process_coins():
+    """Returns totals calculated from coins"""
+    print("please insert cions.")
+    total = int(input("How many quarters?: ")) * 0.25
+    total += int(input("How many dimmes?: ")) * 0.1
+    total += int(input("How many nickles?: ")) * 0.05
+    total += int(input("How many pennies?: ")) * 0.01
+
 should_continue = True
 while should_continue:
 
@@ -44,6 +61,8 @@ while should_continue:
         print(f"Money: ${profit}")
     else:
         drink = MENU[user_input]
-        print(drink)
+        if check_ingredients(drink["ingredients"]):
+            payment = process_coins()
+            
 
 print("☕")
