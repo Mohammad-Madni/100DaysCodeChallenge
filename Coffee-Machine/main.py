@@ -24,11 +24,12 @@ MENU = {
     }
 }
 
+profit = 0
+
 resources = {
     "water": 300,
     "milk": 200,
     "coffee": 100,
-    "money": 0,
 }
 should_continue = True
 while should_continue:
@@ -37,12 +38,12 @@ while should_continue:
     if user_input == "off":
         should_continue = False
     elif user_input == "report":
-        for i in resources:
-            if i == "coffee":
-                print(f"{i}: {resources[i]}g")
-            elif i == "money":
-                print(f"{i}: ${resources[i]}")
-            else:
-                print(f"{i}: {resources[i]}ml")
-    
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Water: {resources['water']}ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: ${profit}")
+    else:
+        drink = MENU[user_input]
+        print(drink)
+
 print("☕")
