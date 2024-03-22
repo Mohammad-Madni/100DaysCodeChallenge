@@ -32,6 +32,7 @@ resources = {
     "coffee": 100,
 }
 
+
 def check_ingredients(ingredients_of_coffee):
     """Check's ingredients are enough or not and return's true or false"""
     for item in ingredients_of_coffee:
@@ -40,19 +41,21 @@ def check_ingredients(ingredients_of_coffee):
             return False
     return True
 
+
 def process_coins():
     """Returns totals calculated from coins"""
-    print("please insert cions.")
+    print("please insert coins.")
     total = int(input("How many quarters?: ")) * 0.25
-    total += int(input("How many dimmes?: ")) * 0.1
+    total += int(input("How many dimes?: ")) * 0.1
     total += int(input("How many nickles?: ")) * 0.05
     total += int(input("How many pennies?: ")) * 0.01
     return total
 
-def is_transaction_successful(money_recieved, drink_cost):
+
+def is_transaction_successful(money_received, drink_cost):
     """Return True when the payment is accepted, or False if money is insufficient."""
-    if money_recieved >= drink_cost:
-        change = round(money_recieved - drink_cost, 2)
+    if money_received >= drink_cost:
+        change = round(money_received - drink_cost, 2)
         print(f"Here is ${change} in change ")
         global profit
         profit += drink_cost
@@ -62,7 +65,15 @@ def is_transaction_successful(money_recieved, drink_cost):
         return False
 
 
+def make_coffee(drink_name, order_ingredients):
+    """Deduct the required ingredients from the resources."""
+    for item in order_ingredients:
+        resources[item] -= order_ingredients[item]
+    print(f"Here is your {drink_name}☕ Enjoy!")
+
+
 should_continue = True
+
 while should_continue:
 
     user_input = input("What would you like? (espresso/latte/cappuccino):").lower()
@@ -77,6 +88,5 @@ while should_continue:
         drink = MENU[user_input]
         if check_ingredients(drink["ingredients"]):
             payment = process_coins()
-            is_transaction_successful(payment,drink["cost"])
-
-print("☕")
+            if is_transaction_successful(payment, drink["cost"]):
+                make_coffee(user_input, drink["ingredients"])
