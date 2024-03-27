@@ -13,11 +13,8 @@ is_on = True
 while is_on:
     options = menu.get_items()
     choice = input(f"What would you like? ({options}): ").lower()
-    if choice == "true":
-        is_on = False
-    elif choice == "report":
-        coffee_maker.report()
-        money_machine.report()
+    
+
 
 
 
