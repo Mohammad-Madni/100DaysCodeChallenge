@@ -5,8 +5,5 @@ class Question:
         self.answer = q_answer
 
 
-new_question = Question("What's", "True")
 
 
-print(new_question.answer)
-print(new_question.text)
