@@ -34,12 +34,15 @@ def color_changing():
 #     my_turtle.color(random.choice(color))
 #     check(no_of_steps = taking_steps)
 my_turtle.speed("fastest")
-my_turtle.pensize(10)
-directions = [0, 90, 180, 270]
-for _ in range(200):
-    my_turtle.color(color_changing())
-    my_turtle.forward(30)
-    my_turtle.setheading(random.choice(directions))
+# my_turtle.pensize(10)
+# directions = [0, 90, 180, 270]
+# for _ in range(200):
+#     my_turtle.color(color_changing())
+#     my_turtle.forward(30)
+#     my_turtle.setheading(random.choice(directions))
+
+my_turtle.color(color_changing())
+my_turtle.circle(100)
 
 
 
