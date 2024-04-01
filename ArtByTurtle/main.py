@@ -50,14 +50,15 @@ def color_changing():
 #
 #
 # draw_spirograph(5)
-rgb_colors = []
-colors = colorgram.extract('hirst_dot_painting.jpg', 30)
-for color in colors:
-    r = color.rgb.r
-    g = color.rgb.g
-    b = color.rgb.b
-    new_color = (r, g, b)
-    rgb_colors.append(new_color)
+# rgb_colors = []
+# colors = colorgram.extract('hirst_dot_painting.jpg', 30)
+# for color in colors:
+#     r = color.rgb.r
+#     g = color.rgb.g
+#     b = color.rgb.b
+#     new_color = (r, g, b)
+#     rgb_colors.append(new_color)
+color_list = [(79, 254, 153), (173, 146, 121), (0, 0, 180), (254, 37, 187), (149, 56, 251), (157, 106, 56), (218, 254, 102), (254, 147, 201), (253, 0, 251), (0, 218, 191), (255, 147, 147), (1, 86, 175), (252, 0, 0), (254, 69, 69), (35, 35, 254), (252, 229, 246), (211, 208, 243), (139, 153, 212), (186, 159, 247), (238, 106, 204), (0, 212, 217), (251, 138, 0), (136, 0, 254), (147, 230, 235)]
 
 
 print(rgb_colors)
