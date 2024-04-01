@@ -1,11 +1,11 @@
 import random
 import turtle
 from turtle import Turtle, Screen
-
-my_turtle = Turtle()
-my_turtle.shape("turtle")
-my_turtle.color("blue")
-turtle.colormode(255)
+import colorgram
+# my_turtle = Turtle()
+# my_turtle.shape("turtle")
+# my_turtle.color("blue")
+# turtle.colormode(255)
 
 def color_changing():
     r = random.randint(0, 255)
@@ -33,7 +33,7 @@ def color_changing():
 # for taking_steps in range(3, 11):
 #     my_turtle.color(random.choice(color))
 #     check(no_of_steps = taking_steps)
-my_turtle.speed("fastest")
+# my_turtle.speed("fastest")
 # my_turtle.pensize(10)
 # directions = [0, 90, 180, 270]
 # for _ in range(200):
@@ -42,20 +42,26 @@ my_turtle.speed("fastest")
 #     my_turtle.setheading(random.choice(directions))
 
 
-def draw_spirograph(degree):
-    for _ in range(int(360/ degree)):
-        my_turtle.color(color_changing())
-        my_turtle.circle(100)
-        my_turtle.setheading(my_turtle.heading() + degree)
+# def draw_spirograph(degree):
+#     for _ in range(int(360/ degree)):
+#         my_turtle.color(color_changing())
+#         my_turtle.circle(100)
+#         my_turtle.setheading(my_turtle.heading() + degree)
+#
+#
+# draw_spirograph(5)
+
+colors = colorgram.extract('hirst_dot_painting.jpg', 6)
+
+first_color = colors[0]
+
+rgb = first_color.rgb
+
+print(rgb)
 
 
-draw_spirograph(5)
 
-
-
-
-
-
-screen = Screen()
-screen.exitonclick()
+#
+# screen = Screen()
+# screen.exitonclick()
 
