@@ -41,10 +41,15 @@ my_turtle.speed("fastest")
 #     my_turtle.forward(30)
 #     my_turtle.setheading(random.choice(directions))
 
-my_turtle.color(color_changing())
-my_turtle.circle(100)
+
+def draw_spirograph(degree):
+    for _ in range(int(360/ degree)):
+        my_turtle.color(color_changing())
+        my_turtle.circle(100)
+        my_turtle.setheading(my_turtle.heading() + degree)
 
 
+draw_spirograph(5)
 
 
 
