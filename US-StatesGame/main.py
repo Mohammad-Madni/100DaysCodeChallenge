@@ -7,3 +7,5 @@
 #         print(row)
 
 import pandas
+data = pandas.read_csv("weather_data.csv")
+print(data["temp"].max())
