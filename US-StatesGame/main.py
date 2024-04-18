@@ -6,17 +6,20 @@ image = "blank_states_img.gif"
 screen.addshape(image)
 turtle.shape(image)
 
-answer_states = screen.textinput(title="Guess the State", prompt="What's another State's name").title()
 data = pandas.read_csv("50_states.csv")
 all_states = data.state.to_list()
-
-if answer_states in all_states:
-    t = turtle.Turtle()
-    t.hideturtle()
-    t.penup()
-    state_data = data[data.state == answer_states]
-    t.goto(int(state_data.x), int(state_data.y))
-    t.write(answer_states)
+guessed_state = []
+while len(guessed_state) < 50:
+    answer_states = screen.textinput(title=f"{len(guessed_state)}/50 States Correct",
+                                     prompt="What's another State's name").title()
+    if answer_states in all_states:
+        guessed_state.append(answer_states)
+        t = turtle.Turtle()
+        t.hideturtle()
+        t.penup()
+        state_data = data[data.state == answer_states]
+        t.goto(int(state_data.x), int(state_data.y))
+        t.write(answer_states)
 
 
 
