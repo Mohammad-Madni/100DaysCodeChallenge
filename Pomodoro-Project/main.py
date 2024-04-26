@@ -22,7 +22,7 @@ window.title("Pomodoro")
 window.config(padx=100, pady=50)
 
 canva = Canvas(width=200,height=224)
-tomato_img = PhotoImage("tomato.png")
+tomato_img = PhotoImage(file="tomato.png")
 canva.create_image(103,112, image= tomato_img)
 canva.pack()
 
