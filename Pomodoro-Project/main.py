@@ -6,12 +6,19 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
+WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
-
+timer = None
 # ---------------------------- TIMER RESET ------------------------------- # 
+def reset_timer():
+    window.after_cancel(timer)
+    timer_label.config(text="Timer")
+    canva.itemconfig(time_filter, text="00:00")
+    check_mark.config(text="")
+    global reps
+    reps = 0
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
@@ -37,11 +44,6 @@ def start_timer():
 
 
 
-
-
-
-
-
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(time):
     count_min = math.floor(time / 60)
@@ -50,7 +52,8 @@ def count_down(time):
         count_sec = f"0{count_sec}"
     canva.itemconfig(time_filter, text=f"{count_min}:{count_sec}")
     if time > 0:
-        window.after(1000, count_down, time - 1)
+        global timer
+        timer = window.after(1000, count_down, time - 1)
     else:
         start_timer()
         marks = ""
@@ -78,7 +81,7 @@ canva.grid(column=1,row=1)
 button1 = Button(text="Start", highlightthickness=0,command=start_timer)
 button1.grid(column=0, row=2)
 
-button2 = Button(text="Reset", highlightthickness=0)
+button2 = Button(text="Reset", highlightthickness=0, command=reset_timer)
 button2.grid(column=2, row=2)
 
 check_mark = Label(fg=GREEN,bg=YELLOW)
