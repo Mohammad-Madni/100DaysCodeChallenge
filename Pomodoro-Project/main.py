@@ -14,6 +14,10 @@ LONG_BREAK_MIN = 20
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
+def count_down(time):
+    canva.itemconfig(time_filter, text=time)
+    if time > 0:
+        window.after(1000, count_down, time - 1)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -28,8 +32,10 @@ timer_label.grid(column=1, row=0)
 canva = Canvas(width=200,height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canva.create_image(100,113, image= tomato_img)
-canva.create_text(100,130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+time_filter = canva.create_text(100,130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canva.grid(column=1,row=1)
+
+count_down(5)
 
 button1 = Button(text="Start", highlightthickness=0)
 button1.grid(column=0, row=2)
