@@ -25,9 +25,11 @@ password_label.grid(row=3, column=0)
 #entries
 website_entry = Entry(width=39)
 website_entry.grid(row=1,column=1, columnspan=2)
+website_entry.focus()
 
 email_entry = Entry(width=39)
 email_entry.grid(row=2,column=1,columnspan=2)
+email_entry.insert(0,"madnikorejo9@gmail.com")
 
 password_entry = Entry(width=21)
 password_entry.grid(row=3, column=1)
