@@ -1,10 +1,13 @@
 from tkinter import *
-
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-def save():
-    pass
+def save(website,email,password):
+    data = open("data.txt", "a")
+    data.write(f"{website}  |  {email}  |  {password}")
+    data.close()
+    data = open("data.txt", "r")
+    print(data.read())
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk("Welcome to Password Manager")
@@ -42,6 +45,7 @@ generate_password_button.grid(row=3,column=2)
 
 add_button = Button(text="Add", width=34)
 add_button.grid(row=4, column=1,columnspan=2)
+
 
 window.config(pady=50, padx=50)
 window.mainloop()
