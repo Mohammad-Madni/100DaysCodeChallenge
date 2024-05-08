@@ -2,8 +2,10 @@ from tkinter import *
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-def save(website,email,password):
-    
+def save():
+    website = website_label.get()
+    email = email_label.get()
+    password = password_entry.get()
     with open("data.txt", "a") as data:
         data.write(f"{website}  |  {email}  |  {password}")
     data = open("data.txt", "r")
