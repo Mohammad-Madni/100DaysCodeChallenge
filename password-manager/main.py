@@ -8,8 +8,6 @@ def save():
     password = password_entry.get()
     with open("data.txt", "a") as data:
         data.write(f"{website}  |  {email}  |  {password}")
-    data = open("data.txt", "r")
-    print(data.read())
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk("Welcome to Password Manager")
