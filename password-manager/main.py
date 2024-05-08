@@ -3,9 +3,9 @@ from tkinter import *
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save(website,email,password):
-    data = open("data.txt", "a")
-    data.write(f"{website}  |  {email}  |  {password}")
-    data.close()
+    
+    with open("data.txt", "a") as data:
+        data.write(f"{website}  |  {email}  |  {password}")
     data = open("data.txt", "r")
     print(data.read())
 
@@ -43,7 +43,7 @@ password_entry.grid(row=3, column=1)
 generate_password_button = Button(text="Generate Password",)
 generate_password_button.grid(row=3,column=2)
 
-add_button = Button(text="Add", width=34)
+add_button = Button(text="Add", width=34, command=save)
 add_button.grid(row=4, column=1,columnspan=2)
 
 
