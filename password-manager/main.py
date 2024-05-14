@@ -36,17 +36,22 @@ def save():
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title="OOPs",message="Please don't leave any field empty!")
     else:
-        with open("data.json", "r") as data_file:
-            #Loading the data
+        try:
+            with open("data.json", "r") as data_file:
+
+        except FileNotFoundError:
+            with open("data.json")
+            # Loading the data
             data = json.load(data_file)
+        else:
             #updating data
             data.update(new_data)
-        with open("data.json", "w") as data_file:
-            #dumping mean Adding the data
-            json.dump(data, data_file, indent=4)
+            with open("data.json", "w") as data_file:
+                #dumping mean Adding the data
+                json.dump(data, data_file, indent=4)
 
-            website_entry.delete(0, END)
-            password_entry.delete(0, END)
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
