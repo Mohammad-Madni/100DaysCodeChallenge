@@ -70,7 +70,8 @@ def search_password():
 # ---------------------------- UI SETUP ------------------------------- #
 
 
-window = Tk("Welcome to Password Manager")
+window = Tk()
+window.title("Welcome to Password Manager")
 canvas = Canvas(height=200, width=200)
 photo_img = PhotoImage(file="logo.png")
 
