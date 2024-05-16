@@ -4,9 +4,9 @@ from tkinter import *
 # --------------------------UI---------------------------
 window = Tk()
 window.title("Flashy")
-window.config(width=800, height=526, pady=50, padx=50, bg=BACKGROUND_COLOR)
+window.config(pady=50, padx=50, bg=BACKGROUND_COLOR)
 
-canvas = Canvas()
+canvas = Canvas(width=800, height=526)
 
 bg_img = PhotoImage(file="images/card_back.png")
 label = Label(image=bg_img)
