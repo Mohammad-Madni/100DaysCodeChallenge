@@ -7,12 +7,14 @@ window.title("Flashy")
 window.config(pady=50, padx=50, bg=BACKGROUND_COLOR)
 
 canvas = Canvas(width=800, height=526)
+
 card_front = PhotoImage(file="images/card_front.png")
 canvas.create_image(400, 263, image=card_front)
+canvas.grid(row=0, column=0)
 
 bg_img = PhotoImage(file="images/card_back.png")
 label = Label(image=bg_img)
-label.grid(row=0,column=0)
+label.grid(row=0, column=0)
 
 #Buttons
 right_button_img = PhotoImage(file="images/right.png")
