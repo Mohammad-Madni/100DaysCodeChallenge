@@ -4,7 +4,7 @@ from tkinter import *
 # --------------------------UI---------------------------
 window = Tk()
 window.title("Flashy")
-window.config(width=800, height=526, pady=50, padx=50)
+window.config(width=800, height=526, pady=50, padx=50, bg=BACKGROUND_COLOR)
 
 canvas = Canvas()
 
