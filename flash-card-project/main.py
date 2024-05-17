@@ -20,7 +20,7 @@ wrong_button = Button(image=wrong_button_img, highlightthickness=0)
 wrong_button.grid(row=1, column=0)
 
 right_button_img = PhotoImage(file="images/right.png")
-right_button = Button(image=right_button_img,highlightthickness=0)
+right_button = Button(image=right_button_img, highlightthickness=0)
 right_button.grid(row=1, column=1)
 
 # bg_img = PhotoImage(file="images/card_back.png")
