@@ -1,16 +1,20 @@
-BACKGROUND_COLOR = "#B1DDC6"
 from tkinter import *
 import pandas
 import random
+BACKGROUND_COLOR = "#B1DDC6"
 
 data = pandas.read_csv("data/french_words.csv")
 learn = data.to_dict(orient="records")
+
+
 def nextcard():
     current_choice = random.choice(learn)
     canvas.config(card_title, text="French")
     canvas.config(card_word, text=current_choice["French"])
 
 # --------------------------UI---------------------------
+
+
 window = Tk()
 window.title("Flashy")
 window.config(pady=50, padx=50, bg=BACKGROUND_COLOR)
@@ -31,12 +35,5 @@ wrong_button.grid(row=1, column=0)
 right_button_img = PhotoImage(file="images/right.png")
 right_button = Button(image=right_button_img, highlightthickness=0, command=nextcard)
 right_button.grid(row=1, column=1)
-
-# bg_img = PhotoImage(file="images/card_back.png")
-# label = Label(image=bg_img)
-# label.grid(row=0, column=0)
-
-
-
 
 window.mainloop()
