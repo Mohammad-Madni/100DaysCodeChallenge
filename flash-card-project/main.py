@@ -31,7 +31,7 @@ def flipcard():
 def to_learn():
     learn.remove(current_choice)
     data = pandas.DataFrame(learn)
-    data.to_csv("data/words_to_learn.csv")
+    data.to_csv("data/words_to_learn.csv", index=False)
 
     nextcard()
 # --------------------------UI---------------------------
