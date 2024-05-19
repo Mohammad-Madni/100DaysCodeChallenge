@@ -9,11 +9,13 @@ current_choice = {}
 
 
 def nextcard():
-    global current_choice
+    global current_choice, flip_timer
+    window.after_cancel(flip_timer)
     current_choice = random.choice(learn)
     canvas.itemconfig(card_title, text="French", fill="black")
     canvas.itemconfig(card_word, text=current_choice["French"], fill="black")
     canvas.itemconfig(card_background, image=card_front)
+    flip_timer = window.after(3000, func=flipcard)
 
 
 def flipcard():
@@ -28,7 +30,7 @@ window = Tk()
 window.title("Flashy")
 window.config(pady=50, padx=50, bg=BACKGROUND_COLOR)
 
-window.after(3000, func=flipcard)
+flip_timer = window.after(3000, func=flipcard)
 
 canvas = Canvas(width=800, height=526)
 
