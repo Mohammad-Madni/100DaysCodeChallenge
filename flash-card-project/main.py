@@ -11,8 +11,9 @@ current_choice = {}
 def nextcard():
     global current_choice
     current_choice = random.choice(learn)
-    canvas.itemconfig(card_title, text="French")
-    canvas.itemconfig(card_word, text=current_choice["French"])
+    canvas.itemconfig(card_title, text="French", fill="black")
+    canvas.itemconfig(card_word, text=current_choice["French"], fill="black")
+    canvas.itemconfig(card_background, image=card_front)
 
 
 def flipcard():
