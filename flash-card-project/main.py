@@ -2,10 +2,14 @@ from tkinter import *
 import pandas
 import random
 BACKGROUND_COLOR = "#B1DDC6"
-
-data = pandas.read_csv("data/french_words.csv")
-learn = data.to_dict(orient="records")
 current_choice = {}
+try:
+    data = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    original_data = pandas.read_csv("data/french_words.csv")
+    learn = original_data.to_dict(orient="records")
+else:
+    learn = data.to_dict(orient="records")
 
 
 def nextcard():
@@ -19,10 +23,17 @@ def nextcard():
 
 
 def flipcard():
-    canvas.itemconfig(card_title, text="English",fill="white")
+    canvas.itemconfig(card_title, text="English", fill="white")
     canvas.itemconfig(card_word, text=current_choice["English"], fill="white")
     canvas.itemconfig(card_background, image=card_back)
 
+
+def to_learn():
+    learn.remove(current_choice)
+    data = pandas.DataFrame(learn)
+    data.to_csv("data/words_to_learn.csv")
+
+    nextcard()
 # --------------------------UI---------------------------
 
 
@@ -47,7 +58,7 @@ wrong_button = Button(image=wrong_button_img, highlightthickness=0, command=next
 wrong_button.grid(row=1, column=0)
 
 right_button_img = PhotoImage(file="images/right.png")
-right_button = Button(image=right_button_img, highlightthickness=0, command=nextcard)
+right_button = Button(image=right_button_img, highlightthickness=0, command=to_learn)
 right_button.grid(row=1, column=1)
 
 nextcard()
