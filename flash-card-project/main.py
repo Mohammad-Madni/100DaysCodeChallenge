@@ -5,12 +5,20 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 data = pandas.read_csv("data/french_words.csv")
 learn = data.to_dict(orient="records")
+current_choice = {}
 
 
 def nextcard():
+    global current_choice
     current_choice = random.choice(learn)
     canvas.itemconfig(card_title, text="French")
     canvas.itemconfig(card_word, text=current_choice["French"])
+
+
+def flipcard():
+    canvas.itemconfig(card_title, text="English",fill="white")
+    canvas.itemconfig(card_word, text=current_choice["English"], fill="white")
+    canvas.itemconfig(card_background, image=card_back)
 
 # --------------------------UI---------------------------
 
@@ -19,10 +27,13 @@ window = Tk()
 window.title("Flashy")
 window.config(pady=50, padx=50, bg=BACKGROUND_COLOR)
 
+window.after(3000, func=flipcard)
+
 canvas = Canvas(width=800, height=526)
 
 card_front = PhotoImage(file="images/card_front.png")
-canvas.create_image(400, 263, image=card_front)
+card_back = PhotoImage(file="images/card_back.png")
+card_background = canvas.create_image(400, 263, image=card_front)
 card_title = canvas.create_text(400, 150, text="", font=("Ariel", 40, "italic"))
 card_word = canvas.create_text(400, 263, text="", font=("Ariel", 60, "bold"))
 canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
