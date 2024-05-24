@@ -14,8 +14,13 @@
 import datetime as dt
 now = dt.datetime.now()
 year = now.year
+month = now.month
+week = now.weekday()
 print(year)
-
+print(month)
+print(week)
+date_of_birth = dt.datetime(year=1999, month=6, day=15)
+print(date_of_birth)
 
 
 
