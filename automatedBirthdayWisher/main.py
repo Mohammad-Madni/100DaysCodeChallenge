@@ -11,7 +11,9 @@
 #         to_addrs="madnikorejo57@gmail.com",
 #         msg="Subject:Hello\n\n"
 #             " this is body of my email!")
-import datetime
+import datetime as dt
+now = dt.datetime.now()
+print(now)
 
 
 
