@@ -24,5 +24,3 @@ print(date_of_birth)
 
 
 
-
-
