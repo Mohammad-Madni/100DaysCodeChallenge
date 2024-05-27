@@ -18,3 +18,7 @@ if weekday == 0:
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(MY_GMAIL,MY_PASSWORD)
+        connection.sendmail(from_addr=MY_GMAIL,
+                            to_addrs=MY_GMAIL,
+                            msg=f"Subject:Monday Motivation\n\n{random_quote}")
+
