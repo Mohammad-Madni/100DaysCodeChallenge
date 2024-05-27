@@ -2,8 +2,8 @@ import smtplib
 import datetime as dt
 import random
 
-MY_GMAIL = ""
-MY_PASSWORD = ""
+MY_GMAIL = "appbrewarycourse@gmail.com"
+MY_PASSWORD = "xhxtkolbjhwdnvrx"
 
 
 now = dt.datetime.now()
@@ -14,11 +14,13 @@ if weekday == 0:
         random_quote = random.choice(all_quotes)
 
 
-    print(random_quote)
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(MY_GMAIL,MY_PASSWORD)
         connection.sendmail(from_addr=MY_GMAIL,
                             to_addrs=MY_GMAIL,
                             msg=f"Subject:Monday Motivation\n\n{random_quote}")
+
+
+print(random_quote)
 
