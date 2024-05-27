@@ -2,6 +2,9 @@ import smtplib
 import datetime as dt
 import random
 
+MY_GMAIL = ""
+MY_PASSWORD = ""
+
 
 now = dt.datetime.now()
 weekday = now.weekday()
@@ -12,3 +15,6 @@ if weekday == 0:
 
 
     print(random_quote)
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(MY_GMAIL,MY_PASSWORD)
