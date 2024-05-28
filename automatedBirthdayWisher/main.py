@@ -3,7 +3,7 @@ import datetime as dt
 import random
 
 MY_GMAIL = "appbrewarycourse@gmail.com"
-MY_PASSWORD = "xhxtkolbjhwdnvrx"
+MY_PASSWORD = "ontnbovzfdsicczm"
 
 
 now = dt.datetime.now()
@@ -15,12 +15,13 @@ if weekday == 0:
 
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
-        connection.starttls()
-        connection.login(MY_GMAIL,MY_PASSWORD)
-        connection.sendmail(from_addr=MY_GMAIL,
+        try:
+            connection.starttls()
+            connection.login(MY_GMAIL,MY_PASSWORD)
+            connection.sendmail(from_addr=MY_GMAIL,
                             to_addrs=MY_GMAIL,
                             msg=f"Subject:Monday Motivation\n\n{random_quote}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
-
-print(random_quote)
 
