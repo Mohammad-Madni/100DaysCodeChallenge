@@ -14,14 +14,11 @@ if weekday == 0:
         random_quote = random.choice(all_quotes)
 
 
-    with smtplib.SMTP("smtp.gmail.com") as connection:
-        try:
-            connection.starttls()
-            connection.login(MY_GMAIL,MY_PASSWORD)
-            connection.sendmail(from_addr=MY_GMAIL,
+    with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+        connection.starttls()
+        connection.login(MY_GMAIL,MY_PASSWORD)
+        connection.sendmail(from_addr=MY_GMAIL,
                             to_addrs=MY_GMAIL,
                             msg=f"Subject:Monday Motivation\n\n{random_quote}")
-        except Exception as e:
-            print(f"An error occurred: {e}")
 
 
