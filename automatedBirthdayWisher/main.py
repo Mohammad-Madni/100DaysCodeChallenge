@@ -1,6 +1,6 @@
 ##################### Normal Starting Project ######################
-
-
+import datetime as dt
+dt.datetime.now()
 
 # 2. Check if today matches a birthday in the birthdays.csv
 # HINT 1: Create a tuple from today's month and day using datetime. e.g.
