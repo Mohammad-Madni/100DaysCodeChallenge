@@ -1,10 +1,11 @@
 ##################### Normal Starting Project ######################
+import pandas as pd
 import datetime as dt
+
 now = dt.datetime.now()
 today_month = now.month
 today_day = now.day
 today = (today_month, today_day)
-
 
 
 # HINT 2: Use pandas to read the birthdays.csv
