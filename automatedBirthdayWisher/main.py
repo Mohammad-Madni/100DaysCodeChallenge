@@ -1,4 +1,6 @@
 ##################### Normal Starting Project ######################
+import csv
+
 import pandas as pd
 import datetime as dt
 
@@ -7,8 +9,10 @@ today_month = now.month
 today_day = now.day
 today = (today_month, today_day)
 
+data = pd.read_csv("birthdays.csv")
+birthdays_dict = {row for row in data}
+print(birthdays_dict)
 
-# HINT 2: Use pandas to read the birthdays.csv
 
 # HINT 3: Use dictionary comprehension to create a dictionary from birthday.csv that is formated like this:
 # birthdays_dict = {
