@@ -1,10 +1,10 @@
 ##################### Normal Starting Project ######################
 import csv
-
+from random import random
 import pandas as pd
-import datetime as dt
+from datetime import datetime
 
-now = dt.datetime.now()
+now = datetime.now()
 today_month = now.month
 today_day = now.day
 today = (today_month, today_day)
@@ -14,7 +14,6 @@ birthdays_dict = {(data_row["month"], data_row["day"] ): data_row for (index, da
 
 if (today_month, today_day) in birthdays_dict:
     
-
 
 # 3. If there is a match, pick a random letter (letter_1.txt/letter_2.txt/letter_3.txt) from letter_templates and replace the [NAME] with the person's actual name from birthdays.csv
 # HINT 1: Think about the relative file path to open each letter. 
