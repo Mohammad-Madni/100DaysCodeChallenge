@@ -10,18 +10,8 @@ today_day = now.day
 today = (today_month, today_day)
 
 data = pd.read_csv("birthdays.csv")
-birthdays_dict = {row for row in data}
-print(birthdays_dict)
-
-
-# HINT 3: Use dictionary comprehension to create a dictionary from birthday.csv that is formated like this:
-birthdays_dict = {
-    (birthday_month, birthday_day): data_row
-}
-#Dictionary comprehension template for pandas DataFrame looks like this:
 birthdays_dict = {(data_row["month"], data_row["day"] ): data_row for (index, data_row) in data.iterrows()}
 #e.g. if the birthdays.csv looked like this:
-
 # name,email,year,month,day
 # Angela,angela@email.com,1995,12,24
 #Then the birthdays_dict should look like this:
