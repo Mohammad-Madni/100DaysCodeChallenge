@@ -19,7 +19,7 @@ birthdays_dict = {
     (birthday_month, birthday_day): data_row
 }
 #Dictionary comprehension template for pandas DataFrame looks like this:
-birthdays_dict = {(data["month"]): new_value for (index, data_row) in data.iterrows()}
+birthdays_dict = {(data_row["month"], data_row["day"] ): data_row for (index, data_row) in data.iterrows()}
 #e.g. if the birthdays.csv looked like this:
 
 # name,email,year,month,day
