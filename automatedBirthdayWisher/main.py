@@ -13,9 +13,9 @@ birthdays_dict = {(data_row["month"], data_row["day"] ): data_row for (index, da
 
 if (today_month, today_day) in birthdays_dict:
     random_number = random.randint(1,3)
-    with open(f"letter_templates/letter_{random_number}.txt") as file:
-        new_file = file.replace("NAME", "madni")
-        print(new_file)
+    file = open(f"letter_templates/letter_{random_number}.txt")
+    new_file = file.replace("NAME", "madni")
+    print(new_file)
 
 # 3. If there is a match, pick a random letter (letter_1.txt/letter_2.txt/letter_3.txt) from letter_templates and replace the [NAME] with the person's actual name from birthdays.csv
 # HINT 1: Think about the relative file path to open each letter. 
