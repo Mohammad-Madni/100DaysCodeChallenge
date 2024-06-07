@@ -9,10 +9,11 @@ today_month = now.month
 today_day = now.day
 today = (today_month, today_day)
 data = pd.read_csv("birthdays.csv")
-birthdays_dict = {(data_row["month"], data_row["day"] ): data_row for (index, data_row) in data.iterrows()}
+birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
 
-if (today_month, today_day) in birthdays_dict:
-    random_number = random.randint(1,3)
+if today in birthdays_dict:
+    random_number = random.randint(1, 3)
+    file_path = f"letter_templates/letter_{random_number}.txt"
     file = open(f"letter_templates/letter_{random_number}.txt")
     new_file = file.replace("NAME", "madni")
     print(new_file)
