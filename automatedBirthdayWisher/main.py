@@ -6,7 +6,7 @@ from datetime import datetime
 import smtplib
 
 MY_EMAIL = "appbrewarycourse@gmail.com"
-MY_PASSWORD = "12345"
+MY_PASSWORD = "password"
 
 now = datetime.now()
 today_month = now.month
@@ -21,7 +21,8 @@ if today in birthdays_dict:
     file_path = f"letter_templates/letter_{random_number}.txt"
     with open(file_path) as file:
         content = file.read()
-        content.replace("NAME", birthday_person["name"])
+        birthday_person_name = birthday_person['name']
+        content.replace("NAME", birthday_person_name)
     with smtplib.SMTP('smtp.gmail.com') as connection:
         connection.starttls()
         connection.login(MY_EMAIL, MY_PASSWORD)
