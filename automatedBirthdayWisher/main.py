@@ -3,6 +3,7 @@ import csv
 import random
 import pandas as pd
 from datetime import datetime
+import smtplib
 
 now = datetime.now()
 today_month = now.month
@@ -18,7 +19,8 @@ if today in birthdays_dict:
     with open(file_path) as file:
         content = file.read()
         content.replace("NAME", birthday_person["name"])
-        print(content)
+    with smtplib.SMTP('smtp.gmail.com') as connection:
+        
 
 # 3. If there is a match, pick a random letter (letter_1.txt/letter_2.txt/letter_3.txt) from letter_templates and replace the [NAME] with the person's actual name from birthdays.csv
 # HINT 1: Think about the relative file path to open each letter. 
