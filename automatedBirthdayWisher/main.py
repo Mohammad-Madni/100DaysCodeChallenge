@@ -20,6 +20,11 @@ if today in birthdays_dict:
         content = file.read()
         content.replace("NAME", birthday_person["name"])
     with smtplib.SMTP('smtp.gmail.com') as connection:
+        connection.starttls()
+        connection.login(MY_EMAIL, MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
+                            to_addrs=birthday_person["email"],
+                            msg=f"Subject:Happy Birthday \n\n{content}")
         
 
 # 3. If there is a match, pick a random letter (letter_1.txt/letter_2.txt/letter_3.txt) from letter_templates and replace the [NAME] with the person's actual name from birthdays.csv
