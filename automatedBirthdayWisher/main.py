@@ -21,13 +21,13 @@ if today in birthdays_dict:
     file_path = f"letter_templates/letter_{random_number}.txt"
     with open(file_path) as file:
         content = file.read()
-        content.replace("[NAME]", birthday_person["name"])
+        final_card = content.replace("[NAME]", birthday_person["name"])
     with smtplib.SMTP('smtp.gmail.com') as connection:
         connection.starttls()
         connection.login(MY_EMAIL, MY_PASSWORD)
         connection.sendmail(from_addr=MY_EMAIL,
                             to_addrs=birthday_person["email"],
-                            msg=f"Subject:Happy Birthday \n\n{content}")
+                            msg=f"Subject:Happy Birthday \n\n{final_card}")
 
 
 
