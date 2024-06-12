@@ -4,7 +4,7 @@ from datetime import datetime
 import smtplib
 
 MY_EMAIL = "appbrewarycourse@gmail.com"
-MY_PASSWORD = "okfwoezgorvkvmiq"
+MY_PASSWORD = "pass123()"
 
 now = datetime.now()
 today_month = now.month
