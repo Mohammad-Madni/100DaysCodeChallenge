@@ -1,12 +1,10 @@
-##################### Normal Starting Project ######################
-import csv
 import random
 import pandas as pd
 from datetime import datetime
 import smtplib
 
 MY_EMAIL = "appbrewarycourse@gmail.com"
-MY_PASSWORD = "password"
+MY_PASSWORD = "okfwoezgorvkvmiq"
 
 now = datetime.now()
 today_month = now.month
@@ -28,6 +26,3 @@ if today in birthdays_dict:
         connection.sendmail(from_addr=MY_EMAIL,
                             to_addrs=birthday_person["email"],
                             msg=f"Subject:Happy Birthday \n\n{final_card}")
-
-
-
