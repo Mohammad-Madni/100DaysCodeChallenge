@@ -1,6 +1,8 @@
 from tkinter import *
+import requests
 
-
+respone = requests.get(url='http://api.open-notify.org/iss-now.json')
+print(respone)
 def get_quote():
     pass
     #Write your code here.
