@@ -8,7 +8,7 @@ def get_quote():
     response.raise_for_status()
     data = response.json()
     new_quote = data["quote"]
-    quote_text.config(150, 207, text=new_quote, width=250, font=("Arial", 30, "bold"), fill="white")
+    canvas.itemconfig(150, text=new_quote, width=250, font=("Arial", 30, "bold"), fill="white")
 
 
 
