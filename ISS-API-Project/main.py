@@ -43,4 +43,5 @@ if is_night() and is_iss_overhead():
     connection.starttls()
     connection.login(MY_EMAIL,MY_PASSWORD)
     connection.sendmail(from_addr=MY_EMAIL,
-                        to_addrs="")
+                        to_addrs="madnikorejo9@gmail.com",
+                        msg="Subject:Look Up\n\nThe ISS is above you in the Sky!")
