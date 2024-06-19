@@ -1,6 +1,7 @@
 import requests
 from datetime import datetime
 import smtplib
+import time
 
 
 MY_EMAIL = "appbrewarycourse@gmail.com"
@@ -38,10 +39,12 @@ def is_night():
     time_now = datetime.now().hour
     if time_now >= sunset and time_now <= sunrise:
         return True
-if is_night() and is_iss_overhead():
-    connection = smtplib.SMTP("gmail.com")
-    connection.starttls()
-    connection.login(MY_EMAIL,MY_PASSWORD)
-    connection.sendmail(from_addr=MY_EMAIL,
-                        to_addrs="madnikorejo9@gmail.com",
-                        msg="Subject:Look Up\n\nThe ISS is above you in the Sky!")
+while True:
+    time.sleep(60)
+    if is_night() and is_iss_overhead():
+        connection = smtplib.SMTP("gmail.com")
+        connection.starttls()
+        connection.login(MY_EMAIL,MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
+                            to_addrs="madnikorejo9@gmail.com",
+                            msg="Subject:Look Up\n\nThe ISS is above you in the Sky!")
