@@ -1,5 +1,10 @@
 import requests
 from datetime import datetime
+import smtplib
+
+
+MY_EMAIL = "appbrewarycourse@gmail.com"
+MY_PASSWORD = "pass123()"
 
 MY_LAT = 26.867487
 MY_LNG = 67.983352
@@ -33,3 +38,9 @@ def is_night():
     time_now = datetime.now().hour
     if time_now >= sunset and time_now <= sunrise:
         return True
+if is_night() and is_iss_overhead():
+    connection = smtplib.SMTP("gmail.com")
+    connection.starttls()
+    connection.login(MY_EMAIL,MY_PASSWORD)
+    connection.sendmail(from_addr=MY_EMAIL,
+                        to_addrs="")
