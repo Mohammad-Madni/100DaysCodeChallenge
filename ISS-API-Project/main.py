@@ -4,8 +4,9 @@ from datetime import datetime
 MY_LAT = 26.867487
 MY_LNG = 67.983352
 
+
 def is_iss_overhead():
-    response = requests.get(url="http://api.open-notify.org/iss-now.json", params=parameters)
+    response = requests.get(url="http://api.open-notify.org/iss-now.json")
     response.raise_for_status()
     data = response.json()
 
@@ -29,4 +30,6 @@ def is_night():
     data = response.json()
     sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
     sunset = int(data["results"]["sunset"].split("T")[1].split(":")[0])
-
+    time_now = datetime.now().hour
+    if time_now >= sunset and time_now <= sunrise:
+        return True
