@@ -1,3 +1,6 @@
+import requests
+
+
 question_data = [
     {
         "category": "Science: Computers",
