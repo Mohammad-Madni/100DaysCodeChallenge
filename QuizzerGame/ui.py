@@ -6,13 +6,6 @@ THEME_COLOR = "#375362"
 class QuizzerInterface:
 
 
-    def true_button(self):
-        self.quiz.check_answer('True')
-
-    def false_button(self):
-        self.quiz.check_answer('False')
-
-
     def __init__(self, quiz_brain : QuizBrain):
         self.quiz = quiz_brain
         self.window = Tk()
@@ -46,8 +39,28 @@ class QuizzerInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg="white")
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
+
+
+
+
+    def true_button(self):
+        is_true = self.quiz.check_answer('True')
+        self.feedback(is_true)
+
+
+    def false_button(self):
+        self.feedback(self.quiz.check_answer('False'))
+
+
+    def feedback(self, is_right):
+        if is_right == True:
+            self.canvas.config(bg="green")
+        else:
+            self.canvas.config(bg="red")
+        self.window.after(1000, self.get_next_question)
 
 
 
