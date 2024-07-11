@@ -7,11 +7,16 @@ class QuizzerInterface:
         self.window = Tk()
         self.window.title("Quizzler")
         self.window.config(pady=20, padx=20, bg=THEME_COLOR)
-        self.question_label = self.Label(text=f"{}", bg="white", font=("arial", 20, "italic"))
-        self.question_label.grid(column=1, row=1)
-
-
         
+        canvas = Canvas(width=300, height=250)
+        canvas.create_text(text="",font=("Arial", 20, "italic"),fill="white")
+        canvas.grid(row=1,column=1)
+
+
+        false_image = PhotoImage(file="images/false.png")
+
+
+
 
 
         self.window.mainloop()
