@@ -21,4 +21,11 @@ for hour_data in weather_data:
         will_rain = True
 
 if will_rain:
-    print("Bring an Umbrella!")
+    client = Client(account_sid, auth_token)
+    message = client.messages \
+        .create(
+        body="It's going to rain today. Remember to bring an Umbrella.",
+        from_="your trail number from twilio",
+        to="to whom you want to send but first verify it from twilio",
+    )
+    print(message.status)
