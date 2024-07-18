@@ -23,7 +23,11 @@ stock_params = {
 
 }
 response = requests.get(STOCK_ENDPOINT,params=stock_params)
-print(response.json())
+data = response.json()["Time Series (Daily)"]
+data_list = [value for (key, value) in data.items()]
+yesterday_data = data_list[0]
+yesterday_closing_price = yesterday_data["4. close"]
+print(yesterday_closing_price)
 #TODO 2. - Get the day before yesterday's closing stock price
 
 #TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
