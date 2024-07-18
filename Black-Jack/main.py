@@ -38,13 +38,13 @@ def compare(user_score, computer_score):
     elif computer_score == 0:
         return "Lose, Opponent has black jack 😱"
     elif user_score > 21:
-        return "You went over, you lose 😭"
+        return "You went over, you lose !😭"
     elif computer_score > 21:
-        return "Opponent went over, you win 😁"
+        return "Opponent went over, you win ! Congrat's😁"
     elif user_score > computer_score:
-        return  "You win 😃"
+        return  "You win ! 😃"
     else:
-        return "You Lose 😤"
+        return "You Lose ! 😤"
 def play_game():
     print(logo)
     user_cards = []
@@ -69,6 +69,7 @@ def play_game():
                 user_cards.append(deal_card())
             else:
                 is_game_end = True
+            
 
     while computer_score != 0 and computer_score < 17:
         computer_cards.append(deal_card())
@@ -80,12 +81,3 @@ def play_game():
     print(compare(user_score = user_score,computer_score = computer_score))
 while input("Do you want to play a game of black jack, Type 'y' or 'n': ").lower() == "y":
     play_game()
-
-#Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
-
-#Hint 12: Once the user is done, it's time to let the computer play. The computer should keep drawing cards as long as it has a score less than 17.
-
-#Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
-
-#Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
-
