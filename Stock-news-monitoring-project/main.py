@@ -35,11 +35,17 @@ day_before_yesterday_closing_price = day_before_yesterday_data["4. close"]
 print(day_before_yesterday_closing_price)
 
 #TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
+difference = abs(float(yesterday_closing_price) - float(day_before_yesterday_closing_price))
+print(difference)
 
 #TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
+dif_percent = (difference / float(yesterday_closing_price)) * 100
+print(dif_percent)
 
 #TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
 
+if dif_percent > 5:
+    print("Get News")
     ## STEP 2: https://newsapi.org/ 
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
