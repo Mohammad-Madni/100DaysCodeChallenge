@@ -7,6 +7,7 @@ COMPANY_NAME = "Tesla Inc"
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
+NEWS_API_KEY = ""
 API_KEY = ""
 
 
@@ -44,8 +45,16 @@ print(dif_percent)
 
 #TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
 
-if dif_percent > 5:
-    print("Get News")
+if dif_percent > 1:
+    news_params = {
+        "apikey" : NEWS_API_KEY,
+        "qInTitle": COMPANY_NAME,
+    }
+    news_response = requests.get(NEWS_ENDPOINT,params=news_params)
+    artical = news_response.json()["articles"]
+    three_articals = artical[:3]
+    print(three_articals)
+
     ## STEP 2: https://newsapi.org/ 
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
