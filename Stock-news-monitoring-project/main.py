@@ -44,15 +44,20 @@ if dif_percent > 1:
         "qInTitle": COMPANY_NAME,
     }
     news_response = requests.get(NEWS_ENDPOINT,params=news_params)
-    artical = news_response.json()["articles"]
-    three_articals = artical[:3]
+    articals = news_response.json()["articles"]
+    three_articals = articals[:3]
     print(three_articals)
+
+
+    formatted_articales = [f"Headline: {artical['title']}. \nBrief: {artical['description']}" for artical in three_articals]
+
 
 
     ## STEP 3: Use twilio.com/docs/sms/quickstart/python
     #to send a separate message with each article's title and description to your phone number. 
 
 #TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
+
 
 #TODO 9. - Send each article as a separate message via Twilio. 
 
