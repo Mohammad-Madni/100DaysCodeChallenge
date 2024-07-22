@@ -1,13 +1,26 @@
 import requests
-
+TOKEN = ""
+USER_NAME = ""
 pixela_endpoint = "https://pixe.la/v1/users"
 
 pixela_params = {
-    "token": "",
-    "username": "",
+    "token": TOKEN,
+    "username": USER_NAME,
     "agreeTermsOfService": "yes",
     "notMinor": "yes"
 }
 
-response = requests.post(url=pixela_endpoint, json=pixela_params)
-print(response.text)
+# response = requests.post(url=pixela_endpoint, json=pixela_params)
+# print(response.text)
+
+graphs_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs"
+
+graph_config = {
+    "id": "graph1",
+    "name": "Cycling Graph",
+    "unit": "km",
+    "type": "float",
+    "color": "ajisai"
+}
+
+requests.post(url=graphs_endpoint,)
