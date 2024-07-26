@@ -1,6 +1,6 @@
 import requests
-TOKEN = ""
-USER_NAME = ""
+TOKEN = "aksf124mksdv823rasfd3"
+USER_NAME = "madnikorejo"
 pixela_endpoint = "https://pixe.la/v1/users"
 
 pixela_params = {
