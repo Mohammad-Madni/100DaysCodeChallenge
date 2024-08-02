@@ -2,6 +2,7 @@ import requests
 TOKEN = "aksf124mksdv823rasfd3"
 USER_NAME = "madnikorejo"
 pixela_endpoint = "https://pixe.la/v1/users"
+GRAPH_ID = "graph1"
 
 pixela_params = {
     "token": TOKEN,
@@ -13,7 +14,7 @@ pixela_params = {
 graphs_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs"
 
 graph_config = {
-    "id": "graph1",
+    "id": GRAPH_ID,
     "name": "Cycling Graph",
     "unit": "km",
     "type": "float",
@@ -24,7 +25,5 @@ headers = {
     'X-USER-TOKEN' : TOKEN
 }
 
-# response = requests.post(url=graphs_endpoint, params=graph_config, headers=headers)
-# print(response.text)
 
-pixel_creation_endpoint = "/v1/users/<username>/graphs/<graphID>"
+pixel_creation_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs/{GRAPH_ID}"
