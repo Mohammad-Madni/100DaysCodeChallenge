@@ -27,4 +27,4 @@ headers = {
 # response = requests.post(url=graphs_endpoint, params=graph_config, headers=headers)
 # print(response.text)
 
-pixel_creation_endpoint = ""
+pixel_creation_endpoint = "/v1/users/<username>/graphs/<graphID>"
