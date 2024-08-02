@@ -10,9 +10,6 @@ pixela_params = {
     "notMinor": "yes"
 }
 
-# response = requests.post(url=pixela_endpoint, json=pixela_params)
-# print(response.text)
-
 graphs_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs"
 
 graph_config = {
