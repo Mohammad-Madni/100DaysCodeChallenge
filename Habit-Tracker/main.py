@@ -14,6 +14,8 @@ pixela_params = {
     "notMinor": "yes"
 }
 
+today = datetime.datetime.now()
+
 graphs_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs"
 
 graph_config = {
@@ -30,12 +32,16 @@ headers = {
 
 
 pixel_creation_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs/{GRAPH_ID}"
-today = datetime.datetime.now()
+
 
 pixel_data = {
     "date":today.strftime("%Y%m%d"),
     "quantity":input("how much did you cycle today?"),
 }
+
+response = requests.post(url=pixel_creation_endpoint,json=pixel_data,headers=headers)
+print(response.text)
+
 
 update_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
 
@@ -43,11 +49,10 @@ new_pixel_data = {
     "quantity":"4.5"
 }
 
+# response = requests.post(url=update_endpoint,json=new_pixel_data,headers=headers)
+# print(response.text)
+
 delete_endpoint = f"{pixela_endpoint}/{USER_NAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
 
-remove_pixel_data = {
-    ""
-}
-
-# response = requests.post(url=pixel_creation_endpoint,json=pixel_data,headers=headers)
+# response = requests.post(url=update_endpoint,headers=headers)
 # print(response.text)
