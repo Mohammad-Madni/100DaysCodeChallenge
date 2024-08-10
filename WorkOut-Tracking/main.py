@@ -1,2 +1,10 @@
-APP_ID = "your app id"
-API_KEY = "your api key"
+import requests
+
+APP_ID = ""
+API_KEY = ""
+
+params = {
+    "x-app-id":APP_ID,
+    "x-app-key":API_KEY,
+}
+
