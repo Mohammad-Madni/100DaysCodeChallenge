@@ -25,3 +25,6 @@ params = {
     "age": AGE
 }
 
+response = requests.post(exercise_endpoint, json=params, headers=headers)
+result = response.json()
+print(result)
