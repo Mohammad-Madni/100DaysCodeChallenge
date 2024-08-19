@@ -27,4 +27,5 @@ params = {
 
 response = requests.post(url=exercise_endpoint, json=params, headers=headers)
 result = response.json()
+
 print(result)
