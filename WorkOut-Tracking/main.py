@@ -1,9 +1,9 @@
 import requests
 
 GENDER = "male"
-WEIGHT_KG = "61"
-HEIGHT_CM = "73"
-AGE = "22"
+WEIGHT_KG = 61
+HEIGHT_CM = 73
+AGE = 22
 
 APP_ID = ""
 API_KEY = ""
@@ -25,6 +25,6 @@ params = {
     "age": AGE
 }
 
-response = requests.post(exercise_endpoint, json=params, headers=headers)
+response = requests.post(url=exercise_endpoint, json=params, headers=headers)
 result = response.json()
 print(result)
