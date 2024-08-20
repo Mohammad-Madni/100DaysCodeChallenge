@@ -1,4 +1,6 @@
 import requests
+from datetime import datetime
+
 
 GENDER = "male"
 WEIGHT_KG = 61
@@ -9,6 +11,7 @@ APP_ID = ""
 API_KEY = ""
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
+sheet_endpoint = "https://api.sheety.co/25e51d5921145d82e04dc8bfce9c9463/myWorkouts/workouts"
 
 exercise_text = input("Tell me which exercises you did: ")
 
@@ -28,4 +31,6 @@ params = {
 response = requests.post(url=exercise_endpoint, json=params, headers=headers)
 result = response.json()
 
-print(result)
+today_date = datetime.now().strftime("%d/%m/%Y")
+now_time = datetime.now().strftime("%X")
+
