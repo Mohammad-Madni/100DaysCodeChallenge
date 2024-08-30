@@ -1,6 +1,9 @@
 import requests
 from datetime import datetime
+from requests.auth import HTTPBasicAuth
 
+
+basic = HTTPBasicAuth('', '')
 
 GENDER = "male"
 WEIGHT_KG = 61
@@ -28,8 +31,10 @@ params = {
     "age": AGE
 }
 
-response = requests.post(url=exercise_endpoint, json=params, headers=headers)
+response = requests.post(url=exercise_endpoint, json=params, headers=headers, auth=basic)
 result = response.json()
+
+#Step 2
 
 today_date = datetime.now().strftime("%d/%m/%Y")
 now_time = datetime.now().strftime("%X")
@@ -44,5 +49,6 @@ for exercise in result["exercises"]:
             "calories":exercise["nf_calories"]
         }
     }
-    sheet_response = requests.post(url=sheet_endpoint,json=sheet_inputs)
+    sheet_response = requests.post(url=sheet_endpoint,json=sheet_inputs, auth=basic)
     print(sheet_response.text)
+
