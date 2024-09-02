@@ -10,6 +10,7 @@ SHEETY_USER_NAME = ""
 SHEETY_PASSWORD = ""
 
 class DataManager:
+
     def __init__(self):
         self._user = SHEETY_USER_NAME
         self._password = SHEETY_PASSWORD
