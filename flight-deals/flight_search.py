@@ -26,6 +26,11 @@ class FlightSearch:
             'client_id': self._api_key,
             'client_secret': self._api_secret
         }
+        response = requests.post(url=TOKEN_ENDPOINT,headers=header,data=body)
+        print(f"Your token is {response.json()['access_token']}")
+        print(f"Your token expires in {response.json()['expires_in']} seconds")
+        return response.json()['access_token']
+
 
     def get_destination_code(self, city_name):
         code = "testing"
