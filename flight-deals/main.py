@@ -1,6 +1,6 @@
 import time
 from datetime import datetime,timedelta
-from flight_data
+from flight_data import find_cheapest_flight
 from data_manager import DataManager
 from flight_search import FlightSearch
 
@@ -10,6 +10,9 @@ data_manager = DataManager()
 sheet_data = data_manager.get_destination_data()
 # print(sheet_data)
 flight_search = FlightSearch()
+
+# Set your origin airport
+ORIGIN_CITY_IATA = "LON"
 
 # ==================== Update the Airport Codes in Google Sheet ====================
 

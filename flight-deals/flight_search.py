@@ -95,7 +95,7 @@ class FlightSearch:
             headers=headers,
             params=query,
         )
-        
+
         if response.status_code != 200:
             print(f"check_flights() response code: {response.status_code}")
             print("There was a problem with the flight search.\n"
