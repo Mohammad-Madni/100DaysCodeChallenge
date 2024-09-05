@@ -75,3 +75,6 @@ class FlightSearch:
             return "Not Found"
 
         return code
+    def check_flight(self,origin_city_code, destination_city_code, from_time, to_time):
+        
+
