@@ -76,5 +76,24 @@ class FlightSearch:
 
         return code
     def check_flight(self,origin_city_code, destination_city_code, from_time, to_time):
+
+        headers = {"Authorization": f"Bearer {self._token}"}
+
+        query = {
+            "originLocationCode": origin_city_code,
+            "destinationLocationCode": destination_city_code,
+            "departureDate": from_time.strftime("%Y-%m-%d"),
+            "returnDate": to_time.strftime("%Y-%m-%d"),
+            "adults": 1,
+            "nonStop": "true",
+            "currencyCode": "GBP",
+            "max": "10",
+        }
+
+        response = requests.get(
+            url=FLIGHT_ENDPOINT,
+            headers=headers,
+            params=query,
+        )
         
 
