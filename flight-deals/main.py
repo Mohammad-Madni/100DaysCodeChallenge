@@ -39,7 +39,7 @@ six_month_from_today = datetime.now() + timedelta(days=(6 * 30))
 
 for destination in sheet_data:
     print(f"Getting flights for {destination['city']}...")
-    flights = flight_search.check_flights(
+    flights = flight_search.check_flight(
         ORIGIN_CITY_IATA,
         destination["iataCode"],
         from_time=tomorrow,
