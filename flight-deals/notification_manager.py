@@ -15,10 +15,13 @@ class NotificationManager:
         a predefined virtual number (provided by Twilio) to your own "verified" number.
         It logs the unique SID (Session ID) of the message, which can be used to
         verify that the message was sent successfully.
+
         Parameters:
         message_body (str): The text content of the SMS message to be sent.
+
         Returns:
         None
+
         Notes:
         - Ensure that `TWILIO_VIRTUAL_NUMBER` and `TWILIO_VERIFIED_NUMBER` are correctly set up in
         your environment (.env file) and correspond with numbers registered and verified in your
