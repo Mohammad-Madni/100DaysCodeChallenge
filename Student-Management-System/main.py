@@ -46,8 +46,32 @@ lnameEntry.grid(row=5,column=1,columnspan=4,padx=5,pady=0)
 phoneEntry.grid(row=6,column=1,columnspan=4,padx=5,pady=0)
 addressEntry.grid(row=7,column=1,columnspan=4,padx=5,pady=0)
 
+#Command later
 addButton = Button(
-    
+    root,text="Add",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84F894"
 )
+updateButton = Button(
+    root,text="Update",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84E8F8"
+)
+deleteButton = Button(
+    root,text="Delete",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#FF9999"
+)
+searchButton = Button(
+    root,text="Search",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F4FE82"
+)
+resetButton = Button(
+    root,text="Reset",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F398FF"
+)
+selectButton = Button(
+    root,text="Select",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#EEEEEE"
+)
+
+addButton.grid(row=3,column=5,columnspan=1,rowspan=2)
+updateButton.grid(row=5,column=5,columnspan=1,rowspan=2)
+deleteButton.grid(row=7,column=5,columnspan=1,rowspan=2)
+searchButton.grid(row=9,column=5,columnspan=1,rowspan=2)
+resetButton.grid(row=11,column=5,columnspan=1,rowspan=2)
+selectButton.grid(row=13,column=5,columnspan=1,rowspan=2)
+
 
 root.mainloop()
