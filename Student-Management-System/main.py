@@ -14,7 +14,7 @@ import tkinter as tk
 root = Tk()
 root.title("Student Management System")
 root.geometry("1080x720")
-mt_tree = ttk.Treeview(root)
+my_tree = ttk.Treeview(root)
 
 #Function
 
@@ -72,6 +72,24 @@ deleteButton.grid(row=7,column=5,columnspan=1,rowspan=2)
 searchButton.grid(row=9,column=5,columnspan=1,rowspan=2)
 resetButton.grid(row=11,column=5,columnspan=1,rowspan=2)
 selectButton.grid(row=13,column=5,columnspan=1,rowspan=2)
+
+style = ttk.Style()
+style.configure("Treeview.Heading",font=("Arial Bold",15))
+
+my_tree["columns"] = ("Student ID","First Name","Last Name","Phone","Address")
+my_tree.column("#0",width=0,stretch=NO)
+
+my_tree.column("Student ID",anchor=W,width=170)
+my_tree.column("First Name",anchor=W,width=150)
+my_tree.column("Last Name",anchor=W,width=150)
+my_tree.column("Phone",anchor=W,width=150)
+my_tree.column("Address",anchor=W,width=165)
+
+my_tree.heading("Student ID",text="Student ID",anchor=W)
+my_tree.heading("First Name",text="First Name",anchor=W)
+my_tree.heading("Last Name",text="Last Name",anchor=W)
+my_tree.heading("Phone",text="Phone",anchor=W)
+my_tree.heading("Address",text="Address",anchor=W)
 
 
 root.mainloop()
