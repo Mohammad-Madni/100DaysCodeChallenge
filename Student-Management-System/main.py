@@ -7,7 +7,21 @@ import tkinter as tk
 
 
 #Connection
+def Connection():
+    con = pymysql.connect(
+        host="localhost",user="root",password="admin",db="student_db"
+    )
+    return con
 
+def refreshTable():
+    for data in my_tree.get_children():
+        my_tree.delete(data)
+
+    for array in read():
+        my_tree.insert(parent="",index="end",id=array,text="",values=(array),tag="orow")
+    my_tree.tag_configure("orow",background="#EEEEEE",font=("Arial",12))
+    my_tree.grid(row=8,column=0,columnspan=5,rowspan=11,padx=10,pady=20)
+    
 
 #GUI
 
