@@ -46,4 +46,8 @@ lnameEntry.grid(row=5,column=1,columnspan=4,padx=5,pady=0)
 phoneEntry.grid(row=6,column=1,columnspan=4,padx=5,pady=0)
 addressEntry.grid(row=7,column=1,columnspan=4,padx=5,pady=0)
 
+addButton = Button(
+    
+)
+
 root.mainloop()
