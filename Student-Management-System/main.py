@@ -55,7 +55,7 @@ def add():
         try:
             conn = Connection()
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO students VALUE ()")
+            cursor.execute("INSERT INTO students VALUES ('"+studid+"','"+fname+"','"+lname+"','"+address+"','"+phone+"')")
             conn.commit()
             conn.close()
         except:
@@ -93,7 +93,7 @@ addressEntry.grid(row=7,column=1,columnspan=4,padx=5,pady=0)
 
 #Command later
 addButton = Button(
-    root,text="Add",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84F894"
+    root,text="Add",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84F894",command=add
 )
 updateButton = Button(
     root,text="Update",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84E8F8"
