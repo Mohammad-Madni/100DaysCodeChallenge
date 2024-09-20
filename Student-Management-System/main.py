@@ -21,7 +21,7 @@ def refreshTable():
         my_tree.insert(parent="",index="end",id=array,text="",values=(array),tag="orow")
     my_tree.tag_configure("orow",background="#EEEEEE",font=("Arial",12))
     my_tree.grid(row=8,column=0,columnspan=5,rowspan=11,padx=10,pady=20)
-    
+
 
 #GUI
 
