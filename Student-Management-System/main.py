@@ -32,6 +32,16 @@ my_tree = ttk.Treeview(root)
 
 #Function
 
+def read():
+    conn = Connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM students")
+    result = cursor.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+
 #GUI
 label = Label(root,text="Student Management System (CRUD MATRIX)",font=("Arial Bold",30))
 label.grid(row=0,column=0,columnspan=8,rowspan=2,padx=50,pady=40)
