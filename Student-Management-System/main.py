@@ -9,7 +9,7 @@ import tkinter as tk
 #Connection
 def Connection():
     con = pymysql.connect(
-        host="localhost",user="root",password="admin",db="student_db"
+        host="localhost",user="root",password="",db="student_db"
     )
     return con
 
@@ -40,6 +40,27 @@ def read():
     conn.commit()
     conn.close()
     return result
+
+def add():
+    studid = str(studidEntry.get())
+    fname = str(fnameEntry.get())
+    lname = str(lnameEntry.get())
+    phone = str(phoneEntry.get())
+    address = str(addressEntry.get())
+
+    if (studid == "" or studid == "") or (fname == "" or fname == "") or (lname == "" or lname == "") or (address == "" or address == "") or (phone == "" or phone == ""):
+        messagebox.showinfo("Error! Please Fill up the blanks")
+        return
+    else:
+        try:
+            conn = Connection()
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO students VALUE ()")
+            conn.commit()
+            conn.close()
+        except:
+            messagebox.showinfo("Error! StudID already exits")
+            return
 
 
 #GUI
@@ -115,5 +136,6 @@ my_tree.heading("Last Name",text="Last Name",anchor=W)
 my_tree.heading("Phone",text="Phone",anchor=W)
 my_tree.heading("Address",text="Address",anchor=W)
 
+refreshTable()
 
 root.mainloop()
