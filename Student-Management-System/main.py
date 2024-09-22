@@ -81,6 +81,25 @@ def reset():
     refreshTable()
 
 
+def delete():
+    desicion = messagebox.askquestion("Warning!!", "Delete Selected Data?").lower()
+    if desicion != "yes":
+        return
+    else:
+        selected_data = my_tree.selection()[0]
+        delete_data = str(my_tree.item(selected_data)["values"][0])
+        try:
+            conn = Connection()
+            cursor = conn.cursor()
+            cursor.execute(f"DELETE FROM students WHERE STUDID={delete_data}")
+            conn.commit()
+            conn.close()
+        except:
+            messagebox.showinfo("Error!", "Sorry an error occured")
+            return
+    refreshTable()
+
+
 #GUI
 label = Label(root,text="Student Management System (CRUD MATRIX)",font=("Arial Bold",30))
 label.grid(row=0,column=0,columnspan=8,rowspan=2,padx=50,pady=40)
@@ -117,7 +136,7 @@ updateButton = Button(
     root,text="Update",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84E8F8"
 )
 deleteButton = Button(
-    root,text="Delete",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#FF9999"
+    root,text="Delete",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#FF9999",command=delete
 )
 searchButton = Button(
     root,text="Search",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F4FE82"
