@@ -50,7 +50,7 @@ def add():
     address = str(addressEntry.get())
 
     if (studid == "" or studid == "") or (fname == "" or fname == "") or (lname == "" or lname == "") or (address == "" or address == "") or (phone == "" or phone == ""):
-        messagebox.showinfo("Error! Please Fill up the blanks")
+        messagebox.showinfo("Error!", "Please Fill up the blanks")
         return
     else:
         try:
@@ -60,9 +60,26 @@ def add():
             conn.commit()
             conn.close()
         except:
-            messagebox.showinfo("Error! StudID already exits")
+            messagebox.showinfo("Error!", "StudID already exits")
             return
     refreshTable()
+
+def reset():
+    desicion = messagebox.askquestion("Warning!!", "Delete All Data").lower()
+    if desicion != "yes":
+        return
+    else:
+        try:
+            conn = Connection()
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM students")
+            conn.commit()
+            conn.close()
+        except:
+            messagebox.showinfo("Error!", "Sorry an error occured")
+            return
+    refreshTable()
+
 
 #GUI
 label = Label(root,text="Student Management System (CRUD MATRIX)",font=("Arial Bold",30))
@@ -106,7 +123,7 @@ searchButton = Button(
     root,text="Search",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F4FE82"
 )
 resetButton = Button(
-    root,text="Reset",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F398FF"
+    root,text="Reset",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F398FF",command=reset
 )
 selectButton = Button(
     root,text="Select",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#EEEEEE"
