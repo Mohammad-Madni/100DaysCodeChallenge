@@ -62,7 +62,7 @@ def add():
         except:
             messagebox.showinfo("Error! StudID already exits")
             return
-
+    refreshTable()
 
 #GUI
 label = Label(root,text="Student Management System (CRUD MATRIX)",font=("Arial Bold",30))
