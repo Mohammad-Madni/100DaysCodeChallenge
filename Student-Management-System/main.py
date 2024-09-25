@@ -140,6 +140,32 @@ def select():
             messagebox.showinfo("Error!", "Please Select a Data Row")
 
 
+def search():
+    studid = str(studidEntry.get())
+    fname = str(fnameEntry.get())
+    lname = str(lnameEntry.get())
+    phone = str(phoneEntry.get())
+    address = str(addressEntry.get())
+
+    conn = Connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM students WHERE STUDID='"+
+                   studid+"'or FNAME='"+
+                   fname+"'or LNAME='"+
+                   lname+"'or PHONE='"+
+                   phone+"'or ADDRESS='"+
+                   address+"' ")
+    try:
+        result = cursor.fetchall()
+        for num in range(1,6):
+            setph(result[0][num],num)
+
+        conn.commit()
+        conn.close()
+    except:
+        messagebox.showinfo("Error!", "No Data Found!")
+
+
 #GUI
 label = Label(root,text="Student Management System (CRUD MATRIX)",font=("Arial Bold",30))
 label.grid(row=0,column=0,columnspan=8,rowspan=2,padx=50,pady=40)
@@ -179,7 +205,7 @@ deleteButton = Button(
     root,text="Delete",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#FF9999",command=delete
 )
 searchButton = Button(
-    root,text="Search",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F4FE82"
+    root,text="Search",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F4FE82",command=search
 )
 resetButton = Button(
     root,text="Reset",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F398FF",command=reset
@@ -198,20 +224,20 @@ selectButton.grid(row=13,column=5,columnspan=1,rowspan=2)
 style = ttk.Style()
 style.configure("Treeview.Heading",font=("Arial Bold",15))
 
-my_tree["columns"] = ("Student ID","First Name","Last Name","Phone","Address")
+my_tree["columns"] = ("Student ID","First Name","Last Name","Address","Phone")
 my_tree.column("#0",width=0,stretch=NO)
 
 my_tree.column("Student ID",anchor=W,width=170)
 my_tree.column("First Name",anchor=W,width=150)
 my_tree.column("Last Name",anchor=W,width=150)
-my_tree.column("Phone",anchor=W,width=150)
-my_tree.column("Address",anchor=W,width=165)
+my_tree.column("Address",anchor=W,width=150)
+my_tree.column("Phone",anchor=W,width=165)
 
 my_tree.heading("Student ID",text="Student ID",anchor=W)
 my_tree.heading("First Name",text="First Name",anchor=W)
 my_tree.heading("Last Name",text="Last Name",anchor=W)
-my_tree.heading("Phone",text="Phone",anchor=W)
 my_tree.heading("Address",text="Address",anchor=W)
+my_tree.heading("Phone",text="Phone",anchor=W)
 
 refreshTable()
 
