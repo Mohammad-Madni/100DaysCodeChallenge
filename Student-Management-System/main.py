@@ -33,6 +33,28 @@ my_tree = ttk.Treeview(root)
 
 #Function
 
+#placeholders
+ph1 = tk.StringVar()
+ph2 = tk.StringVar()
+ph3 = tk.StringVar()
+ph4 = tk.StringVar()
+ph5 = tk.StringVar()
+
+#set placeholders the values
+def setph(word,num):
+    if num == 1:
+        ph1.set(word)
+    if num == 2:
+        ph2.set(word)
+    if num == 3:
+         ph3.set(word)
+    if num == 4:
+         ph4.set(word)
+    if num == 5:
+         ph5.set(word)
+
+
+
 def read():
     conn = Connection()
     cursor = conn.cursor()
@@ -100,6 +122,24 @@ def delete():
     refreshTable()
 
 
+def select():
+        try:
+            selected_data = my_tree.selection()[0]
+            studid = str(my_tree.item(selected_data)["values"][0])
+            fname = str(my_tree.item(selected_data)["values"][1])
+            lname = str(my_tree.item(selected_data)["values"][2])
+            phone = str(my_tree.item(selected_data)["values"][3])
+            address = str(my_tree.item(selected_data)["values"][4])
+
+            setph(studid,1)
+            setph(fname,2)
+            setph(lname,3)
+            setph(phone,4)
+            setph(address,5)
+        except:
+            messagebox.showinfo("Error!", "Please Select a Data Row")
+
+
 #GUI
 label = Label(root,text="Student Management System (CRUD MATRIX)",font=("Arial Bold",30))
 label.grid(row=0,column=0,columnspan=8,rowspan=2,padx=50,pady=40)
@@ -116,11 +156,11 @@ lnamelabel.grid(row=5,column=0,columnspan=1,padx=50,pady=5)
 phonelabel.grid(row=6,column=0,columnspan=1,padx=50,pady=5)
 addresslabel.grid(row=7,column=0,columnspan=1,padx=50,pady=5)
 
-studidEntry = Entry(root,width=55,bd=5,font=("Arial",15))
-fnameEntry = Entry(root,width=55,bd=5,font=("Arial",15))
-lnameEntry = Entry(root,width=55,bd=5,font=("Arial",15))
-phoneEntry = Entry(root,width=55,bd=5,font=("Arial",15))
-addressEntry = Entry(root,width=55,bd=5,font=("Arial",15))
+studidEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph1)
+fnameEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph2)
+lnameEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph3)
+phoneEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph4)
+addressEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph5)
 
 studidEntry.grid(row=3,column=1,columnspan=4,padx=5,pady=0)
 fnameEntry.grid(row=4,column=1,columnspan=4,padx=5,pady=0)
@@ -145,7 +185,7 @@ resetButton = Button(
     root,text="Reset",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#F398FF",command=reset
 )
 selectButton = Button(
-    root,text="Select",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#EEEEEE"
+    root,text="Select",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#EEEEEE",command=select
 )
 
 addButton.grid(row=3,column=5,columnspan=1,rowspan=2)
