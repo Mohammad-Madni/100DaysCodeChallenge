@@ -166,6 +166,43 @@ def search():
         messagebox.showinfo("Error!", "No Data Found!")
 
 
+def update():
+    selectedStudid = ""
+    try:
+        selected_data = my_tree.selection()[0]
+        selectedStudid = str(my_tree.item(selected_data)["values"][0])
+    except:
+        messagebox.showinfo("Error!", "Please Select a Data Row")
+    studid = str(studidEntry.get())
+    fname = str(fnameEntry.get())
+    lname = str(lnameEntry.get())
+    phone = str(phoneEntry.get())
+    address = str(addressEntry.get())
+
+    if (studid == "" or studid == "") or (fname == "" or fname == "") or (lname == "" or lname == "") or (address == "" or address == "") or (phone == "" or phone == ""):
+        messagebox.showinfo("Error!", "Please Fill up the blanks")
+        return
+    else:
+        try:
+            conn = Connection()
+            cursor = conn.cursor()
+            cursor.execute("UPDATE students SET STUDID='"+
+            studid+"'or FNAME='"+
+            fname+"'or LNAME='"+
+            lname+"'or PHONE='"+
+            phone+"'or ADDRESS='"+
+            address+"'WHERE STUDID= '"+
+            selectedStudid+"' ")
+            conn.commit()
+            conn.close()
+        except:
+            messagebox.showinfo("Error!", "StudID already exits")
+            return
+    refreshTable()
+
+
+
+
 #GUI
 label = Label(root,text="Student Management System (CRUD MATRIX)",font=("Arial Bold",30))
 label.grid(row=0,column=0,columnspan=8,rowspan=2,padx=50,pady=40)
@@ -200,7 +237,7 @@ addButton = Button(
     root,text="Add",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84F894",command=add
 )
 updateButton = Button(
-    root,text="Update",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84E8F8"
+    root,text="Update",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#84E8F8",command=update
 )
 deleteButton = Button(
     root,text="Delete",padx=65,pady=15,width=10,bd=5,font=("Arial",15),bg="#FF9999",command=delete
