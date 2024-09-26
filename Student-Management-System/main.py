@@ -157,8 +157,8 @@ def search():
                    address+"' ")
     try:
         result = cursor.fetchall()
-        for num in range(1,6):
-            setph(result[0][num],num)
+        for num in range(0,5):
+            setph(result[0][num],(num+1))
 
         conn.commit()
         conn.close()
@@ -179,20 +179,21 @@ addresslabel = Label(root,text="Address",font=("Arial",15))
 studidlabel.grid(row=3,column=0,columnspan=1,padx=50,pady=5)
 fnamelabel.grid(row=4,column=0,columnspan=1,padx=50,pady=5)
 lnamelabel.grid(row=5,column=0,columnspan=1,padx=50,pady=5)
-phonelabel.grid(row=6,column=0,columnspan=1,padx=50,pady=5)
-addresslabel.grid(row=7,column=0,columnspan=1,padx=50,pady=5)
+addresslabel.grid(row=6,column=0,columnspan=1,padx=50,pady=5)
+phonelabel.grid(row=7,column=0,columnspan=1,padx=50,pady=5)
 
 studidEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph1)
 fnameEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph2)
 lnameEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph3)
-phoneEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph4)
-addressEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph5)
+phoneEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph5)
+addressEntry = Entry(root,width=55,bd=5,font=("Arial",15),textvariable=ph4)
 
 studidEntry.grid(row=3,column=1,columnspan=4,padx=5,pady=0)
 fnameEntry.grid(row=4,column=1,columnspan=4,padx=5,pady=0)
 lnameEntry.grid(row=5,column=1,columnspan=4,padx=5,pady=0)
-phoneEntry.grid(row=6,column=1,columnspan=4,padx=5,pady=0)
-addressEntry.grid(row=7,column=1,columnspan=4,padx=5,pady=0)
+addressEntry.grid(row=6,column=1,columnspan=4,padx=5,pady=0)
+phoneEntry.grid(row=7,column=1,columnspan=4,padx=5,pady=0)
+
 
 #Command later
 addButton = Button(
@@ -230,14 +231,14 @@ my_tree.column("#0",width=0,stretch=NO)
 my_tree.column("Student ID",anchor=W,width=170)
 my_tree.column("First Name",anchor=W,width=150)
 my_tree.column("Last Name",anchor=W,width=150)
-my_tree.column("Address",anchor=W,width=150)
-my_tree.column("Phone",anchor=W,width=165)
+my_tree.column("Phone",anchor=W,width=150)
+my_tree.column("Address",anchor=W,width=165)
 
 my_tree.heading("Student ID",text="Student ID",anchor=W)
 my_tree.heading("First Name",text="First Name",anchor=W)
 my_tree.heading("Last Name",text="Last Name",anchor=W)
-my_tree.heading("Address",text="Address",anchor=W)
 my_tree.heading("Phone",text="Phone",anchor=W)
+my_tree.heading("Address",text="Address",anchor=W)
 
 refreshTable()
 
