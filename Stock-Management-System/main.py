@@ -13,3 +13,6 @@ window.title("Stock Management System")
 my_tree = ttk.Treeview(window,show="headings",height=20)
 window.geometry("720x640")
 
+
+
+window.mainloop()
