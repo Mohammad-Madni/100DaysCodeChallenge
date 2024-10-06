@@ -26,7 +26,7 @@ btnColor = "#196E78"
 manageframe = tkinter.LabelFrame(frame,text="Manage",borderwidth=5)
 manageframe.grid(row=0,column=0,sticky="w",padx=[10,200],pady=20,ipadx=[6])
 
-saveBtn = Button(manageframe,text="Save",)
+saveBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor)
 
 
 window.resizable(False,False)
