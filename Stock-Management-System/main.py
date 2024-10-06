@@ -19,6 +19,9 @@ for i in range(0,5):
     placeholderArray[i] = tkinter.StringVar()
 
 frame = tkinter.Frame(window,bg="#02577A")
+frame.pack()
 
 
+
+window.resizable(False,False)
 window.mainloop()
