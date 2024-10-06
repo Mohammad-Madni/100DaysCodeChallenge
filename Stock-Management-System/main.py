@@ -13,6 +13,12 @@ window.title("Stock Management System")
 my_tree = ttk.Treeview(window,show="headings",height=20)
 window.geometry("720x640")
 
+placeholderArray = ['','','','','']
+
+for i in range(0,5):
+    placeholderArray[i] = tkinter.StringVar()
+
+frame = tkinter.Frame(window,bg="#02577A")
 
 
 window.mainloop()
