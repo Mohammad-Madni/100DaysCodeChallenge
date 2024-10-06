@@ -21,6 +21,12 @@ for i in range(0,5):
 frame = tkinter.Frame(window,bg="#02577A")
 frame.pack()
 
+btnColor = "#196E78"
+
+manageframe = tkinter.LabelFrame(frame,text="Manage",borderwidth=5)
+manageframe.grid(row=0,column=0,sticky="w",padx=[10,200],pady=20,ipadx=[6])
+
+saveBtn = Button(manageframe,text="Save",)
 
 
 window.resizable(False,False)
