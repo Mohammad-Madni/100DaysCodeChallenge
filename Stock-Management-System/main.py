@@ -26,7 +26,13 @@ btnColor = "#196E78"
 manageframe = tkinter.LabelFrame(frame,text="Manage",borderwidth=5)
 manageframe.grid(row=0,column=0,sticky="w",padx=[10,200],pady=20,ipadx=[6])
 
-saveBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor)
+saveBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor,fg="white")
+updateBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor,fg="white")
+deleteBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor,fg="white")
+selectBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor,fg="white")
+findBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor,fg="white")
+clearBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor,fg="white")
+exportBtn = Button(manageframe,text="SAVE",width=10,borderwidth=10,bg=btnColor,fg="white")
 
 
 window.resizable(False,False)
