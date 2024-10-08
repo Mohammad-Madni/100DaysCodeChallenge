@@ -43,5 +43,9 @@ clearBtn.grid(row=0,column=5,padx=5,pady=5)
 exportBtn.grid(row=0,column=6,padx=5,pady=5)
 
 
+entriesframe = tkinter.LabelFrame(frame,text="Form",borderwidth=5)
+entriesframe.grid(row=0,column=0,sticky="w",padx=[10,200],pady=20,ipadx=[6])
+
+
 window.resizable(False,False)
 window.mainloop()
