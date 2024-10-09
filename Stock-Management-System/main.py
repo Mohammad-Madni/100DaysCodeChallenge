@@ -78,6 +78,18 @@ generateIdBtn.grid(row=0,column=3,padx=5,pady=5)
 
 style.configure(window)
 
+my_tree["columns"] = ("Item Id","Name","Price","Quantity","Category","Date")
+
+my_tree.column("#0",width=0,stretch=NO)
+my_tree.column("Item Id",anchor="w",width=70)
+my_tree.column("Name",anchor="w",width=70)
+my_tree.column("Price",anchor="w",width=70)
+my_tree.column("Quantity",anchor="w",width=70)
+my_tree.column("Category",anchor="w",width=70)
+my_tree.column("Date",anchor="w",width=70)
+
+
+
 
 window.resizable(False,False)
 window.mainloop()
