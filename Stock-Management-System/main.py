@@ -64,6 +64,11 @@ priceEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[2])
 qntEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[3])
 categoryEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[4])
 
+itemIdEntry.grid(row=0,column=2,padx=5,pady=5)
+nameEntry.grid(row=1,column=2,padx=5,pady=5)
+priceEntry.grid(row=2,column=2,padx=5,pady=5)
+qntEntry.grid(row=3,column=2,padx=5,pady=5)
+categoryEntry.grid(row=4,column=2,padx=5,pady=5)
 
 window.resizable(False,False)
 window.mainloop()
