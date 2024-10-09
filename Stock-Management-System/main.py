@@ -10,8 +10,9 @@ import numpy as np
 
 window = Tk()
 window.title("Stock Management System")
-my_tree = ttk.Treeview(window,show="headings",height=20)
 window.geometry("720x640")
+my_tree = ttk.Treeview(window,show="headings",height=20)
+style = ttk.Style()
 
 placeholderArray = ['','','','','']
 
@@ -74,6 +75,8 @@ categoryCombo.grid(row=4,column=2,padx=5,pady=5)
 
 generateIdBtn = Button(entriesframe,text="GENERATE ID",borderwidth=3,bg=btnColor,fg="white")
 generateIdBtn.grid(row=0,column=3,padx=5,pady=5)
+
+style.configure(window)
 
 
 window.resizable(False,False)
