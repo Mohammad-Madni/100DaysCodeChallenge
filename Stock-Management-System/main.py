@@ -44,7 +44,7 @@ exportBtn.grid(row=0,column=6,padx=5,pady=5)
 
 
 entriesframe = tkinter.LabelFrame(frame,text="Form",borderwidth=5)
-entriesframe.grid(row=0,column=0,sticky="w",padx=[10,200],pady=[0,20],ipadx=[6])
+entriesframe.grid(row=1,column=0,sticky="w",padx=[10,200],pady=[0,20],ipadx=[6])
 
 itemIdLabel = Label(entriesframe,text="ITEM ID",anchor='e',width=10)
 nameLabel = Label(entriesframe,text="NAME",anchor='e',width=10)
@@ -57,6 +57,12 @@ nameLabel.grid(row=1,column=0,padx=10)
 priceLabel.grid(row=2,column=0,padx=10)
 qntLabel.grid(row=3,column=0,padx=10)
 categoryLabel.grid(row=4,column=0,padx=10)
+
+itemIdEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[0])
+nameEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[1])
+priceEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[2])
+qntEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[3])
+categoryEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[4])
 
 
 window.resizable(False,False)
