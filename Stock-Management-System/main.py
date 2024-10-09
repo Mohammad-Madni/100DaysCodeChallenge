@@ -72,5 +72,9 @@ priceEntry.grid(row=2,column=2,padx=5,pady=5)
 qntEntry.grid(row=3,column=2,padx=5,pady=5)
 categoryCombo.grid(row=4,column=2,padx=5,pady=5)
 
+generateIdBtn = Button(entriesframe,text="GENERATE ID",borderwidth=3)
+generateIdBtn.grid(row=0,column=3,padx=5,pady=5)
+
+
 window.resizable(False,False)
 window.mainloop()
