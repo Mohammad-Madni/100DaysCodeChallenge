@@ -19,6 +19,21 @@ placeholderArray = ['','','','','']
 for i in range(0,5):
     placeholderArray[i] = tkinter.StringVar()
 
+dumy_data = [
+    ["123abc","123abc","123abc","123abc","123abc","123abc",],
+    ["123","123abc","123abc","123abc","123abc","123abc",],
+]
+
+def refreshTable():
+    for data in my_tree.get_children():
+        my_tree.delete(data)
+    for array in dumy_data:
+        my_tree.insert(parent="",index='end',iid=array,text="",values=(array),tags="orow")
+    my_tree.tag_configure("orow",background="#EEEEEE")
+    my_tree.pack()
+
+
+
 frame = tkinter.Frame(window,bg="#02577A")
 frame.pack()
 
@@ -82,11 +97,11 @@ my_tree["columns"] = ("Item Id","Name","Price","Quantity","Category","Date")
 
 my_tree.column("#0",width=0,stretch=NO)
 my_tree.column("Item Id",anchor=W,width=70)
-my_tree.column("Name",anchor=W,width=70)
-my_tree.column("Price",anchor=W,width=70)
-my_tree.column("Quantity",anchor=W,width=70)
-my_tree.column("Category",anchor=W,width=70)
-my_tree.column("Date",anchor=W,width=70)
+my_tree.column("Name",anchor=W,width=125)
+my_tree.column("Price",anchor=W,width=125)
+my_tree.column("Quantity",anchor=W,width=100)
+my_tree.column("Category",anchor=W,width=150)
+my_tree.column("Date",anchor=W,width=150)
 
 my_tree.heading("Item Id",text="Item Id",anchor=W)
 my_tree.heading("Name",text="Name",anchor=W)
@@ -95,8 +110,10 @@ my_tree.heading("Quantity",text="Quantity",anchor=W)
 my_tree.heading("Category",text="Category",anchor=W)
 my_tree.heading("Date",text="Date",anchor=W)
 
-my_tree.tag_configure("orow")
+my_tree.tag_configure("orow",background="#EEEEEE")
 my_tree.pack()
+
+refreshTable()
 
 window.resizable(False,False)
 window.mainloop()
