@@ -16,6 +16,17 @@ style = ttk.Style()
 
 placeholderArray = ['','','','','']
 
+
+def Connection():
+    con = pymysql.connect(
+        host="localhost",
+        user="root",
+        password="",
+        db="stockmanagementsystem"
+    )
+    return con
+
+
 for i in range(0,5):
     placeholderArray[i] = tkinter.StringVar()
 
