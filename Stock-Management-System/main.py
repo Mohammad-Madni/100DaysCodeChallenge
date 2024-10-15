@@ -80,7 +80,7 @@ itemIdEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[0])
 nameEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[1])
 priceEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[2])
 qntEntry = Entry(entriesframe,width=50,textvariable=placeholderArray[3])
-categoryCombo = ttk.Combobox(entriesframe,width=50,textvariable=placeholderArray[4],values=categoryArray)
+categoryCombo = ttk.Combobox(entriesframe,width=47,textvariable=placeholderArray[4],values=categoryArray)
 
 itemIdEntry.grid(row=0,column=2,padx=5,pady=5)
 nameEntry.grid(row=1,column=2,padx=5,pady=5)
