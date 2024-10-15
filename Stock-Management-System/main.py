@@ -26,6 +26,8 @@ def Connection():
     )
     return con
 
+con = Connection()
+cursor = con.cursor()
 
 for i in range(0,5):
     placeholderArray[i] = tkinter.StringVar()
