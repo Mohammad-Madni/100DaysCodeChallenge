@@ -44,7 +44,7 @@ def read():
 def refreshTable():
     for data in my_tree.get_children():
         my_tree.delete(data)
-    for array in dumy_data:
+    for array in read():
         my_tree.insert(parent="",index='end',iid=array,text="",values=(array),tags="orow")
     my_tree.tag_configure("orow",background="#EEEEEE")
     my_tree.pack()
