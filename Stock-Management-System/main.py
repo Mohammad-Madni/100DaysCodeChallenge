@@ -32,10 +32,14 @@ cursor = con.cursor()
 for i in range(0,5):
     placeholderArray[i] = tkinter.StringVar()
 
-dumy_data = [
-    ["123abc","123abc","123abc","123abc","123abc","123abc",],
-    ["123","123abc","123abc","123abc","123abc","123abc",],
-]
+def read():
+    cursor.connection.ping()
+    sql = f"SELECT `id`, `item_id`, `name`, `price`, `quantity`, `category`, `date` FROM stocks ORDER BY 'id' DESC"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    con.commit()
+    con.close()
+    return results
 
 def refreshTable():
     for data in my_tree.get_children():
