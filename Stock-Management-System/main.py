@@ -15,6 +15,8 @@ my_tree = ttk.Treeview(window,show="headings",height=20)
 style = ttk.Style()
 
 placeholderArray = ['','','','','']
+numeric = '1234567890'
+alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 
 def Connection():
@@ -53,7 +55,10 @@ def refreshTable():
 def generateRand():
     itemId=''
     for i in range(0,3):
-        
+        randno = random.randrange(0,(len(numeric)-1))
+        itemId = itemId+str(numeric[randno])
+    randno = random.randrange(0,len(alpha-1))
+    itemId = item+'-'+
 
 frame = tkinter.Frame(window,bg="#02577A")
 frame.pack()
