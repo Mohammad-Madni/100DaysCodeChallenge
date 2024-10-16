@@ -50,6 +50,10 @@ def refreshTable():
     my_tree.pack()
 
 
+def generateRand():
+    itemId=''
+    for i in range(0,3):
+        
 
 frame = tkinter.Frame(window,bg="#02577A")
 frame.pack()
