@@ -58,7 +58,8 @@ def generateRand():
         randno = random.randrange(0,(len(numeric)-1))
         itemId = itemId+str(numeric[randno])
     randno = random.randrange(0,len(alpha-1))
-    itemid = item+'-'+str(alpha[randno])
+    itemId = itemId+'-'+str(alpha[randno])
+    print("Generated: "+itemId)
 
 frame = tkinter.Frame(window,bg="#02577A")
 frame.pack()
@@ -114,7 +115,7 @@ priceEntry.grid(row=2,column=2,padx=5,pady=5)
 qntEntry.grid(row=3,column=2,padx=5,pady=5)
 categoryCombo.grid(row=4,column=2,padx=5,pady=5)
 
-generateIdBtn = Button(entriesframe,text="GENERATE ID",borderwidth=3,bg=btnColor,fg="white")
+generateIdBtn = Button(entriesframe,text="GENERATE ID",borderwidth=3,bg=btnColor,fg="white",command=generateRand)
 generateIdBtn.grid(row=0,column=3,padx=5,pady=5)
 
 style.configure(window)
