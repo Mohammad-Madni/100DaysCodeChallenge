@@ -58,7 +58,7 @@ def generateRand():
         randno = random.randrange(0,(len(numeric)-1))
         itemId = itemId+str(numeric[randno])
     randno = random.randrange(0,len(alpha-1))
-    itemId = item+'-'+
+    itemid = item+'-'+str(alpha[randno])
 
 frame = tkinter.Frame(window,bg="#02577A")
 frame.pack()
