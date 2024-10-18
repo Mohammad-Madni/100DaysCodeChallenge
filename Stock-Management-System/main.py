@@ -7,6 +7,7 @@ import pymysql
 import csv
 from datetime import datetime
 import numpy as np
+from unicodedata import category
 
 window = Tk()
 window.title("Stock Management System")
@@ -67,6 +68,18 @@ def generateRand():
     itemId = itemId+'-'+str(alpha[randno])
     setph(itemId,0)
 
+
+def save():
+    itemID = str(itemIdEntry.get())
+    name = str(nameEntry.get())
+    price = str(priceEntry.get())
+    qnt = str(qntEntry.get())
+    cat = str(categoryCombo.get())
+    valid = True
+    if (not (itemID[3]=="-")):
+        valid = False
+    for i in range(0,3):
+        
 
 
 frame = tkinter.Frame(window,bg="#02577A")
