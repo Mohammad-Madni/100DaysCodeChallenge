@@ -52,6 +52,12 @@ def refreshTable():
     my_tree.pack()
 
 
+def setph(word,num):
+    for ph in range(0,5):
+        if ph == num:
+            placeholderArray[ph].set(word)
+
+
 def generateRand():
     itemId=''
     for i in range(0,3):
@@ -60,8 +66,8 @@ def generateRand():
     randno = random.randrange(0,len(alpha-1))
     itemId = itemId+'-'+str(alpha[randno])
     print("Generated: "+itemId)
+    setph(itemId,0)
 
-def 
 
 
 frame = tkinter.Frame(window,bg="#02577A")
