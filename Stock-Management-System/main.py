@@ -76,10 +76,20 @@ def save():
     qnt = str(qntEntry.get())
     cat = str(categoryCombo.get())
     valid = True
+    if not(itemID and itemID.strip()) or not(name and name.strip()) or not( price and price.strip()) or not(qnt and qnt.strip()) or not(cat and cat.strip()):
+        messagebox.showwarning("", "Please Fill up all blanks")
+        return
     if (not (itemID[3]=="-")):
         valid = False
     for i in range(0,3):
-        
+        if (not(itemID[i] in numeric)):
+            valid = False
+            break
+    if (not(itemID[4] in alpha)):
+        valid = False
+    if not(valid ):
+        messagebox.showwarning("","Invalid Item Id")
+        return
 
 
 frame = tkinter.Frame(window,bg="#02577A")
@@ -90,7 +100,7 @@ btnColor = "#196E78"
 manageframe = tkinter.LabelFrame(frame,text="Manage",borderwidth=5)
 manageframe.grid(row=0,column=0,sticky="w",padx=[10,200],pady=20,ipadx=[6])
 
-saveBtn = Button(manageframe,text="SAVE",width=10,borderwidth=3,bg=btnColor,fg="white")
+saveBtn = Button(manageframe,text="SAVE",width=10,borderwidth=3,bg=btnColor,fg="white",command=save)
 updateBtn = Button(manageframe,text="UPDATE",width=10,borderwidth=3,bg=btnColor,fg="white")
 deleteBtn = Button(manageframe,text="DELETE",width=10,borderwidth=3,bg=btnColor,fg="white")
 selectBtn = Button(manageframe,text="SELECT",width=10,borderwidth=3,bg=btnColor,fg="white")
