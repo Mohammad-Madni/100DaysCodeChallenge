@@ -53,7 +53,7 @@ def refreshTable():
 
 
 def generateRand():
-    itemId=''
+    itemId='' 
     for i in range(0,3):
         randno = random.randrange(0,(len(numeric)-1))
         itemId = itemId+str(numeric[randno])
