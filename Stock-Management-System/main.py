@@ -37,7 +37,7 @@ for i in range(0,5):
 
 def read():
     cursor.connection.ping()
-    sql = f"SELECT `id`, `item_id`, `name`, `price`, `quantity`, `category`, `date` FROM stocks ORDER BY 'id' DESC"
+    sql = f"SELECT `item_id`, `name`, `price`, `quantity`, `category`, `date` FROM stocks ORDER BY 'id' DESC"
     cursor.execute(sql)
     results = cursor.fetchall()
     con.commit()
@@ -70,26 +70,49 @@ def generateRand():
 
 
 def save():
-    itemID = str(itemIdEntry.get())
+    itemId = str(itemIdEntry.get())
     name = str(nameEntry.get())
     price = str(priceEntry.get())
     qnt = str(qntEntry.get())
     cat = str(categoryCombo.get())
     valid = True
-    if not(itemID and itemID.strip()) or not(name and name.strip()) or not( price and price.strip()) or not(qnt and qnt.strip()) or not(cat and cat.strip()):
+    if not(itemId and itemId.strip()) or not(name and name.strip()) or not( price and price.strip()) or not(qnt and qnt.strip()) or not(cat and cat.strip()):
         messagebox.showwarning("", "Please Fill up all blanks")
         return
-    if (not (itemID[3]=="-")):
+    if len(itemId) < 5:
+        messagebox.showwarning("", "Invalid Item Id")
+        return
+    if (not (itemId[3]=="-")):
         valid = False
     for i in range(0,3):
-        if (not(itemID[i] in numeric)):
+        if (not(itemId[i] in numeric)):
             valid = False
             break
-    if (not(itemID[4] in alpha)):
+    if (not(itemId[4] in alpha)):
         valid = False
     if not(valid ):
         messagebox.showwarning("","Invalid Item Id")
         return
+    try:
+        cursor.connection.ping()
+        sql = f"SELECT * FROM stocks WHERE 'item_id' = {itemId}"
+        cursor.execute(sql)
+        checkItemNo = cursor.fetchall()
+        if len(checkItemNo) > 0:
+            messagebox.showwarning("","Item Id already used")
+            return
+        else:
+            cursor.connection.ping()
+            sql=f"INSERT INTO stocks(`item_id`, `name`, `price`, `quantity`, `category`) VALUES ('{itemId}','{name}','{price}','{qnt}','{cat}',)"
+            cursor.execute(sql)
+        con.commit()
+        con.close()
+        refreshTable()
+    except:
+        messagebox.showwarning("", "Error while saving")
+        return
+
+
 
 
 frame = tkinter.Frame(window,bg="#02577A")
