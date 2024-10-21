@@ -107,10 +107,10 @@ def save():
             cursor.execute(sql)
         con.commit()
         con.close()
-        refreshTable()
     except:
         messagebox.showwarning("", "Error while saving")
         return
+    refreshTable()
 
 
 
