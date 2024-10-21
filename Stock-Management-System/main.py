@@ -75,42 +75,58 @@ def save():
     price = str(priceEntry.get())
     qnt = str(qntEntry.get())
     cat = str(categoryCombo.get())
-    valid = True
-    if not(itemId and itemId.strip()) or not(name and name.strip()) or not( price and price.strip()) or not(qnt and qnt.strip()) or not(cat and cat.strip()):
+
+    # Check for blanks
+    if not (itemId and itemId.strip()) or not (name and name.strip()) or not (price and price.strip()) or not (
+            qnt and qnt.strip()) or not (cat and cat.strip()):
         messagebox.showwarning("", "Please Fill up all blanks")
         return
+
+    # Validate Item ID
     if len(itemId) < 5:
         messagebox.showwarning("", "Invalid Item Id")
         return
-    if (not (itemId[3]=="-")):
-        valid = False
-    for i in range(0,3):
-        if (not(itemId[i] in numeric)):
+    if itemId[3] != "-":
+        messagebox.showwarning("", "Invalid Item Id format, expecting 'XXX-...'.")
+        return
+
+    valid = True
+    for i in range(0, 3):
+        if itemId[i] not in numeric:
             valid = False
             break
-    if (not(itemId[4] in alpha)):
+    if itemId[4] not in alpha:
         valid = False
-    if not(valid ):
-        messagebox.showwarning("","Invalid Item Id")
+
+    if not valid:
+        messagebox.showwarning("", "Invalid Item Id")
         return
+
     try:
-        cursor.connection.ping()
-        sql = f"SELECT * FROM stocks WHERE 'item_id' = {itemId}"
-        cursor.execute(sql)
+        cursor.connection.ping()  # Ensure the connection is alive
+
+        # Secure query using parameters
+        sql = "SELECT * FROM stocks WHERE item_id = %s"
+        cursor.execute(sql, (itemId,))
         checkItemNo = cursor.fetchall()
+
         if len(checkItemNo) > 0:
-            messagebox.showwarning("","Item Id already used")
+            messagebox.showwarning("", "Item Id already used")
             return
         else:
-            cursor.connection.ping()
-            sql=f"INSERT INTO stocks(`item_id`, `name`, `price`, `quantity`, `category`) VALUES ('{itemId}','{name}','{price}','{qnt}','{cat}',)"
-            cursor.execute(sql)
-        con.commit()
-        con.close()
-    except:
-        messagebox.showwarning("", "Error while saving")
+            # Inserting data securely
+            sql = "INSERT INTO stocks (item_id, name, price, quantity, category) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(sql, (itemId, name, price, qnt, cat))
+            con.commit()
+
+        refreshTable()  # Refresh the table to show new data
+
+    except Exception as e:
+        messagebox.showwarning("", f"Error while saving: {str(e)}")
         return
-    refreshTable()
+    finally:
+        if con.is_connected():
+            con.close()  # Closing the connection safely
 
 
 
