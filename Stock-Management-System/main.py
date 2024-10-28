@@ -35,22 +35,34 @@ cursor = con.cursor()
 for i in range(0,5):
     placeholderArray[i] = tkinter.StringVar()
 
+
 def read():
-    cursor.connection.ping()
-    sql = f"SELECT `item_id`, `name`, `price`, `quantity`, `category`, `date` FROM stocks ORDER BY 'id' DESC"
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    con.commit()
-    con.close()
-    return results
+    try:
+        cursor.connection.ping()  # Ensure connection is active
+
+        # Use backticks around `id` if it is a reserved word or avoid quotes altogether
+        sql = "SELECT `item_id`, `name`, `price`, `quantity`, `category`, `date` FROM stocks ORDER BY id DESC"
+        cursor.execute(sql)
+        results = cursor.fetchall()
+
+        return results
+
+    except Exception as e:
+        print(f"Error reading data: {str(e)}")
+        return []
+
 
 def refreshTable():
+    # Clear existing rows in the tree
     for data in my_tree.get_children():
         my_tree.delete(data)
+
+    # Insert new data
     for array in read():
-        my_tree.insert(parent="",index='end',iid=array,text="",values=(array),tags="orow")
-    my_tree.tag_configure("orow",background="#EEEEEE")
-    my_tree.pack()
+        my_tree.insert(parent="", index="end", iid=array[0], text="", values=array, tags=("orow",))
+
+    # Configure row color and style if needed
+    my_tree.tag_configure("orow", background="#EEEEEE")
 
 
 def setph(word,num):
@@ -127,6 +139,7 @@ def save():
     finally:
         if con.is_connected():
             con.close()  # Closing the connection safely
+
 
 
 
@@ -210,6 +223,7 @@ my_tree.heading("Date",text="Date",anchor=W)
 my_tree.tag_configure("orow",background="#EEEEEE")
 my_tree.pack()
 
+read()
 refreshTable()
 
 window.resizable(False,False)
