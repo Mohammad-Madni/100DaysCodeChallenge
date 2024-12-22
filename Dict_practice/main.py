@@ -1,4 +1,7 @@
 #Practice
-dict = {}
-dict = dict.a["madni":"korejo"]
-print(type(dict))
+dict = {"madni":"korejo",}
+dict["Class"] = "BSSW"
+dict["Caste"] = "Korejo"
+print(dict)
+for i in dict.keys():
+    print(i + " : "+dict[i])
