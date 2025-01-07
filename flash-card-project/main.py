@@ -34,7 +34,6 @@ def to_learn():
     data.to_csv("data/words_to_learn.csv", index=False)
 
     nextcard()
-# --------------------------UI---------------------------
 
 
 window = Tk()
