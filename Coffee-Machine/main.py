@@ -43,7 +43,7 @@ def check_ingredients(ingredients_of_coffee):
 
 
 def process_coins():
-    """Returns totals calculated from coins"""
+    """Returns total calculated from coins"""
     print("please insert coins.")
     total = int(input("How many quarters?: ")) * 0.25
     total += int(input("How many dimes?: ")) * 0.1
