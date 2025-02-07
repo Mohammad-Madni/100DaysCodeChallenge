@@ -19,4 +19,4 @@ s = "SELECT * FROM book"
 cur.execute(s)
 result = cur.fetchall()
 for record in result:
-    print(rec)
+    print(record)
