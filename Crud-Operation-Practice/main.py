@@ -14,7 +14,7 @@ v = [(2, "PHP", 150),(3,"java",120)]
 cur.executemany(s,v)
 my_db.commit()
 
-#retrieving data from book
+#Retrieving data from book
 s = "SELECT * FROM book"
 cur.execute(s)
 result = cur.fetchall()
