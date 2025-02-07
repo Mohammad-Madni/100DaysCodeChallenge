@@ -18,5 +18,5 @@ my_db.commit()
 s = "SELECT * FROM book"
 cur.execute(s)
 result = cur.fetchall()
-for rec in result:
+for record in result:
     print(rec)
