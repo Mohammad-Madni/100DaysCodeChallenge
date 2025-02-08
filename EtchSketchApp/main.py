@@ -18,7 +18,7 @@ def move_forward():
 def move_backward():
     tim.backward(10)
 
-
+#reset_func
 def reset():
     tim.reset()
 
