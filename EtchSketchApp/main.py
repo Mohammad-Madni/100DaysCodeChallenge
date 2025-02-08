@@ -10,7 +10,7 @@ def move_left():
 def move_right():
     tim.right(10)
 
-
+#move_forward
 def move_forward():
     tim.forward(10)
 
