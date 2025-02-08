@@ -22,6 +22,7 @@ def move_backward():
 def reset():
     tim.reset()
 
+#implementation_of_functions
 screen.listen()
 screen.onkey(key="w", fun=move_forward)
 screen.onkey(key="s", fun=move_backward)
