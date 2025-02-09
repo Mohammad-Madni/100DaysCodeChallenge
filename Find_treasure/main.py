@@ -27,5 +27,4 @@ elif position_lower[0] == "c":
   elif position_lower[1] == "3":
     line3[2] = "X"
 # Write your code above this row 👆
-# 🚨 Don't change the code below 👇
 print(f"{line1}\n{line2}\n{line3}")
