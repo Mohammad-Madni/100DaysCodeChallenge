@@ -1,4 +1,4 @@
-# Which year do you want to check?
+
 year = int(input())
 
 if year % 4 == 0:
