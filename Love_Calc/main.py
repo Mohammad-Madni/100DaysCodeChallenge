@@ -1,6 +1,6 @@
 print("The Love Calculator is calculating your score...")
 name1 = input()  # You're name?
-name2 = input()  # What is their name?
+name2 = input()  # her/his name?
 # Your code below this line 👇
 combined_names = name1 + name2
 lower_names = combined_names.lower()
