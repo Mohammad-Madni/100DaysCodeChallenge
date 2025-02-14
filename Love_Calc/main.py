@@ -1,5 +1,5 @@
 print("The Love Calculator is calculating your score...")
-name1 = input()
+name1 = input()  # You're name?
 name2 = input()  # What is their name?
 # Your code below this line 👇
 combined_names = name1 + name2
