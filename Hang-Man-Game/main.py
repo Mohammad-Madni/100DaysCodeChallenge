@@ -12,7 +12,7 @@ word_length = len(chosen_word)
 end_of_game = False
 lives = 6
 
-#TODO-3: - Import the logo from hangman_art.py
+#TODO-3: - Import t
 
 
 #Create blanks
