@@ -5,7 +5,7 @@ import logging
 # logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Define the parent directory containing the folders with images
+# Define the parent directory containing the folders with pics
 parent_folder = "from where to get those folder's of images"
 output_parent_folder = "Where you want to save"
 
