@@ -2,7 +2,7 @@ import os
 from PIL import Image, UnidentifiedImageError
 import logging
 
-# Setup logging
+# logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Define the parent directory containing the folders with images
