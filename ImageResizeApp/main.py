@@ -37,7 +37,7 @@ for root, dirs, files in os.walk(parent_folder):
                 if img.mode == 'RGBA':
                     img_resized = img_resized.convert('RGB')
 
-                # Save the resized image in the corresponding output folder
+                # Save the resized image in output folder
                 img_resized.save(os.path.join(output_folder, file))
             except UnidentifiedImageError:
                 logging.error(f"Cannot identify image file {file}, skipping.")
