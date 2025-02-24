@@ -62,7 +62,7 @@ def count_down(time):
             marks += "✔"
         check_mark.config(text=marks)
 
-# ---------------------------- UI SETUP ------------------------------- #
+# -------------------------- UI SETUP ----------------------------- #
 
 window = Tk()
 window.title("Pomodoro")
