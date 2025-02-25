@@ -3,8 +3,8 @@ from twilio.rest import Client
 OWM_Endpoint = "https://pro.openweathermap.org/data/2.5/forecast/hourly"
 api_key = ""
 weather_params = {
-    "lon": 67.980330,
-    "lat": 26.870970,
+    "lon": #yourlogitude,
+    "lat": ,
     "appid": api_key,
     "cnt": 4,
 
