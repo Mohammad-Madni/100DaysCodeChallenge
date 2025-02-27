@@ -21,7 +21,7 @@ for root, dirs, files in os.walk(parent_folder):
     output_folder = os.path.join(output_parent_folder, relative_path)
     os.makedirs(output_folder, exist_ok=True)
 
-    # Loop through each file in the current folder
+    # Loop through each file in the current folder.
     for file in files:
         if file.lower().endswith(('.png', '.jpg', '.jpeg')):  # Modify extensions as needed
             img_path = os.path.join(root, file)
