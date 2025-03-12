@@ -3,6 +3,7 @@
 
 import pandas
 
+
 #new_list = [new_item for item in list if test]
 #TODO 1. Create a dictionary in this format:
 data = pandas.read_csv("nato_phonetic_alphabet.csv")
