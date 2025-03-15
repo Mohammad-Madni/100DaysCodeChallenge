@@ -10,7 +10,6 @@ MY_PASSWORD = "vmmxcvtruxxojklu"
 MY_LAT = 26.867487
 MY_LNG = 67.983352
 
-
 def is_iss_overhead():
     response = requests.get(url="http://api.open-notify.org/iss-now.json")
     response.raise_for_status()
