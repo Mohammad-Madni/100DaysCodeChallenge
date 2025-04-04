@@ -3,7 +3,6 @@ import datetime
 
 
 TOKEN = "your token number"
-
 USER_NAME = "madnikorejo"
 
 pixela_endpoint = "https://pixe.la/v1/users"
