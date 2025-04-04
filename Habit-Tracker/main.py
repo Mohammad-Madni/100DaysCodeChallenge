@@ -43,6 +43,7 @@ pixel_data = {
 
 response = requests.post(url=pixel_creation_endpoint,json=pixel_data,headers=headers)
 
+
 print(response.text)
 
 
