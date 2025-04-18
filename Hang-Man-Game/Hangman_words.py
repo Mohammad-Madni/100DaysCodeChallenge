@@ -204,10 +204,8 @@ word_list = [
 'yippee',
 'yoked',
 'youthful',
-'yummy',
 'zephyr',
 'zigzag',
-
 'zigzagging',
 'zilch',
 'zipper',
