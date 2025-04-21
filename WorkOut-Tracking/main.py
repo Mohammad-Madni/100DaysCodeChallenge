@@ -35,6 +35,7 @@ params = {
 response = requests.post(url=exercise_endpoint, json=params, headers=headers, auth=basic)
 result = response.json()
 
+
 #Step 2
 
 
