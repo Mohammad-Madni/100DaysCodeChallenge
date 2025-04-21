@@ -37,6 +37,7 @@ result = response.json()
 
 #Step 2
 
+
 today_date = datetime.now().strftime("%d/%m/%Y")
 now_time = datetime.now().strftime("%X")
 
