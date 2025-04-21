@@ -5,6 +5,7 @@ from requests.auth import HTTPBasicAuth
 
 basic = HTTPBasicAuth('', '')
 
+
 GENDER = "male"
 WEIGHT_KG = 61
 HEIGHT_CM = 73
