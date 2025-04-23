@@ -4,6 +4,7 @@ print(logo)
 
 
 bids = {}
+
 bidding_finished = False
 
 def find_highest_bidder(bidding_record):
