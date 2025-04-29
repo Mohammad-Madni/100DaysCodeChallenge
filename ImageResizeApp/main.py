@@ -14,6 +14,7 @@ output_parent_folder = "Where you want to save"
 os.makedirs(output_parent_folder, exist_ok=True)
 
 # Walk through the parent folder and its subdirectories
+
 for root, dirs, files in os.walk(parent_folder):
     # Calculate the relative path from the parent folder
     relative_path = os.path.relpath(root, parent_folder)
