@@ -10,6 +10,7 @@ parent_folder = "from where to get those folder's of images"
 output_parent_folder = "Where you want to save"
 
 # Create the output parent folder if it doesn't have
+
 os.makedirs(output_parent_folder, exist_ok=True)
 
 # Walk through the parent folder and its subdirectories
