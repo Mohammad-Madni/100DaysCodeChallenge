@@ -6,6 +6,7 @@ OWM_Endpoint = "https://pro.openweathermap.org/data/2.5/forecast/hourly"
 
 api_key = ""
 
+
 weather_params = {
     "lon": #yourlogitude,
     "lat": #yourlatitude,
