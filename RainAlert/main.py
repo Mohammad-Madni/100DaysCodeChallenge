@@ -34,3 +34,4 @@ if will_rain:
         to="to whom you want to send but first verify it from twilio",
     )
     print(message.status)
+
