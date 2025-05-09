@@ -7,6 +7,7 @@ screen = Screen()
 def move_left():
     tim.left(10)
 
+
 #move_right_func
 def move_right():
     tim.right(10)
