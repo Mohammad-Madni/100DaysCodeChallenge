@@ -8,6 +8,7 @@ print("Hiding your treasure! X marks the spot.")
 
 position = input()
 
+
 position_lower = position.lower()
 
 if position_lower[0] == "a":
