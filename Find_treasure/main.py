@@ -6,6 +6,7 @@ map = [line1, line2, line3]
 print("Hiding your treasure! X marks the spot.")
 
 
+
 position = input()
 
 
