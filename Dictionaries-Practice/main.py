@@ -6,7 +6,6 @@
 
 # we can nest list in dict and dict in list
 
-
 #Normal dictionary
 countries = {
     "Pakistan" : "Islamabad",
