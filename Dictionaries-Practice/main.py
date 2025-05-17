@@ -32,6 +32,7 @@ travel_log = {
     "Germany" : {"cities_visted": ["Berlin", "Hamburg", "Stuttgart"],"No_times_visited" : 5},
 }
 
+
 # Nesting Dict in a list
 travel_log = [
     {
