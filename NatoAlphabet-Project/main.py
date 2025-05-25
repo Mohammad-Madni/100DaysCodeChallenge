@@ -12,6 +12,7 @@ phonethic_dict = {row.letter:row.code for (index, row) in data.iterrows()}
 #new_dict = {key:value for (key, value) in dict if test}
 ##we put .itterrows() for the ittration through row
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+
 should_continue = True
 while should_continue:
     try:
