@@ -14,6 +14,7 @@ screen.tracer(0)
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 
+
 screen.listen()
 screen.onkey(fun=r_paddle.go_up, key="Up")
 screen.onkey(fun=r_paddle.go_down, key="Down")
