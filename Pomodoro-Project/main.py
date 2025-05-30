@@ -81,8 +81,8 @@ time_filter = canva.create_text(100,130, text="00:00", fill="white", font=(FONT_
 canva.grid(column=1,row=1)
 
 button1 = Button(text="Start", highlightthickness=0,command=start_timer)
-button1.grid(column=0, row=2)
 
+button1.grid(column=0, row=2)
 button2 = Button(text="Reset", highlightthickness=0, command=reset_timer)
 button2.grid(column=2, row=2)
 
