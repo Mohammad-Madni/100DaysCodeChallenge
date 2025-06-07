@@ -10,6 +10,7 @@ color_list = [(79, 254, 153), (173, 146, 121), (0, 0, 180), (254, 37, 187),
 
 tim = Turtle()
 tim.penup()
+
 tim.hideturtle()
 tim.speed("fastest")
 tim.setheading(225)
